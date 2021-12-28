@@ -2,11 +2,12 @@
 ![Build Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Build/main?git&style=for-the-badge&logo=TypeScript)
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/imranbarbhuiya/duration?logo=codefactor&style=for-the-badge)
 
-> A small fast utility to convert milliseconds to human readable string or vice versa..
+> A small and fast utility to convert milliseconds to human-readable string or vice versa.
 
 ---
 
 **\*NOTICE:** This is a fork of [@lukeed/ms](https://github.com/lukeed/ms) which is a fork of [vercel/ms](https://github.com/vercel/ms)!\*<br>
+
 I Just rewritten it in ts and object oriented.
 
 ---

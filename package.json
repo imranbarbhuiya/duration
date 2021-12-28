@@ -1,7 +1,7 @@
 {
   "name": "@imranbarbhuiya/duration",
   "version": "1.0.0",
-  "description": "A small fast utility to convert milliseconds to human readable string or vice versa.",
+  "description": "A small and fast utility to convert milliseconds to human-readable string or vice versa.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -18,7 +18,8 @@
     "time",
     "format",
     "milliseconds",
-    "convert"
+    "convert",
+    "duration"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.7.0",
