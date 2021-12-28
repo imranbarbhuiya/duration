@@ -57,7 +57,13 @@ export class Duration extends null {
 
   public static format(
     ms: number,
-    { long = false, separator = " " } = { long: false, separator: " " }
+    {
+      long = false,
+      separator = " ",
+    }: {
+      long: boolean;
+      separator?: string;
+    } = { long: false, separator: " " }
   ): string | undefined {
     if (!ms || typeof ms !== "number") return;
     const pfx = ms < 0 ? "-" : "",
