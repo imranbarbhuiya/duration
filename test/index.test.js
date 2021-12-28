@@ -27,7 +27,7 @@ test("should convert ms to human-readable string", () => {
   expect(Duration.format(86400000)).toBe("1d");
   expect(Duration.format(604800000)).toBe("7d");
   expect(Duration.format(2592000000)).toBe("1mo");
-  expect(Duration.format(31536000000)).toBe("12mo");
+  expect(Duration.format(31557600000)).toBe("1y");
 });
 
 test("should show long form when passing long:true", () => {
@@ -37,7 +37,7 @@ test("should show long form when passing long:true", () => {
   expect(Duration.format(86400000, { long: true })).toBe("1 day");
   expect(Duration.format(604800000, { long: true })).toBe("7 days");
   expect(Duration.format(2592000000, { long: true })).toBe("1 month");
-  expect(Duration.format(31536000000, { long: true })).toBe("12 months");
+  expect(Duration.format(31557600000, { long: true })).toBe("1 year");
 });
 
 test("should change separator when its passed along with long:true", () => {
@@ -59,7 +59,7 @@ test("should change separator when its passed along with long:true", () => {
   expect(Duration.format(2592000000, { long: true, separator: "-" })).toBe(
     "1-month"
   );
-  expect(Duration.format(31536000000, { long: true, separator: "-" })).toBe(
-    "12-months"
+  expect(Duration.format(31557600000, { long: true, separator: "-" })).toBe(
+    "1-year"
   );
 });

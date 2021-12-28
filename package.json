@@ -13,7 +13,7 @@
     "build": "tsc -p tsconfig.json",
     "lint": "eslint .",
     "pretest": "npm run build",
-    "test": "jest",
+    "test": "jest --coverage",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imranbarbhuiya/ms.git"
+    "url": "git+https://github.com/imranbarbhuiya/duration.git"
   },
   "bugs": {
-    "url": "https://github.com/imranbarbhuiya/ms/issues"
+    "url": "https://github.com/imranbarbhuiya/duration/issues"
   },
-  "homepage": "https://github.com/imranbarbhuiya/ms#readme"
+  "homepage": "https://github.com/imranbarbhuiya/duration#readme"
 }
