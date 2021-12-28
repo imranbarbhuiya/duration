@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "pretest": "npm run build",
     "test": "jest",
-    "codecov": "codecov",
+    "report": "jest && codecov",
     "prepublish": "npm run build"
   },
   "keywords": [
