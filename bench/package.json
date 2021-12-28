@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "devDependencies": {
-    "benchmark": "2.1.4",
-    "ms": "2.1.2"
-  }
-}

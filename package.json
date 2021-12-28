@@ -1,37 +1,18 @@
 {
-  "umd:name": "ms",
-  "version": "2.0.0",
-  "name": "@lukeed/ms",
-  "repository": "lukeed/ms",
-  "description": "A tiny (414B) and fast utility to convert milliseconds to and from strings.",
-  "unpkg": "dist/index.min.js",
-  "module": "dist/index.mjs",
+  "name": "@imranbarbhuiya/duration",
+  "version": "1.0.0",
+  "description": "A small fast utility to convert milliseconds to human readable string or vice versa.",
   "main": "dist/index.js",
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "license": "MIT",
-  "author": {
-    "name": "Luke Edwards",
-    "email": "luke.edwards05@gmail.com",
-    "url": "https://lukeed.com"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
-  },
+  "author": "imranbarbhuiya",
   "engines": {
     "node": ">=8"
   },
   "scripts": {
-    "build": "bundt",
-    "test": "uvu -r esm test"
+    "build": "tsc -p tsconfig.json",
+    "prepublish": "npm run build"
   },
-  "files": [
-    "*.d.ts",
-    "dist"
-  ],
   "keywords": [
     "ms",
     "time",
@@ -40,8 +21,17 @@
     "convert"
   ],
   "devDependencies": {
-    "bundt": "1.1.2",
-    "esm": "3.2.25",
-    "uvu": "0.5.1"
-  }
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint": "^8.5.0",
+    "typescript": "^4.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imranbarbhuiya/ms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imranbarbhuiya/ms/issues"
+  },
+  "homepage": "https://github.com/imranbarbhuiya/ms#readme"
 }
