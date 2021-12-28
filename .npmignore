@@ -4,3 +4,4 @@ tsconfig.json
 .github
 test
 coverage
+.travis.yml
