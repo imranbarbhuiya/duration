@@ -1,6 +1,0 @@
-language: node_js
-before_install:
-  - npm install -g jest codecov
-script:
-  - jest --ci --coverage && codecov
-  - coverage
