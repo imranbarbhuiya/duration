@@ -14,7 +14,6 @@
     "lint": "eslint .",
     "pretest": "npm run build",
     "test": "jest",
-    "report": "jest && codecov",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -35,7 +34,6 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
-    "codecov": "^3.8.3",
     "eslint": "^8.5.0",
     "jest": "^27.4.5",
     "typescript": "^4.5.4"
