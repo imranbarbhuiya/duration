@@ -1,29 +1,29 @@
-const RGX =
-  /^(-?(?:\d+)?\.?\d+) *(m(?:illiseconds?|s(?:ecs?)?))?(s(?:ec(?:onds?|s)?)?)?(m(?:in(?:utes?|s)?)?)?(h(?:ours?|rs?)?)?(d(?:ays?)?)?(w(?:eeks?|ks?)?)?(mo(?:n(?:ths?|s)?)?)?(y(?:ears?|rs?)?)?$/;
-const SEC = 1e3;
-const MIN = SEC * 60;
-const HOUR = MIN * 60;
-const DAY = HOUR * 24;
-const MONTH = DAY * 30;
-const YEAR = DAY * 365.25;
-
 export class Duration extends null {
+  private static readonly RGX =
+    /^(-?(?:\d+)?\.?\d+) *(m(?:illiseconds?|s(?:ecs?)?))?(s(?:ec(?:onds?|s)?)?)?(m(?:in(?:utes?|s)?)?)?(h(?:ours?|rs?)?)?(d(?:ays?)?)?(w(?:eeks?|ks?)?)?(mo(?:n(?:ths?|s)?)?)?(y(?:ears?|rs?)?)?$/;
+  private static readonly SEC = 1e3;
+  private static readonly MIN = this.SEC * 60;
+  private static readonly HOUR = this.MIN * 60;
+  private static readonly DAY = this.HOUR * 24;
+  private static readonly MONTH = this.DAY * 30;
+  private static readonly YEAR = this.DAY * 365.25;
   /**
    *
-   * @param {string} input the input string
-   * @returns  {number} the duration in milliseconds
+   * @param input the input string
+   * @returns the duration in milliseconds
    */
   public static parse(input: string): number | undefined {
+    if (!input || typeof input !== "string") return;
     let num: number;
-    const arr = input.toLowerCase().match(RGX);
+    const arr = input.toLowerCase().match(this.RGX);
     if (arr != null && (num = parseFloat(arr[1]))) {
-      if (arr[3] != null) return num * SEC;
-      if (arr[4] != null) return num * MIN;
-      if (arr[5] != null) return num * HOUR;
-      if (arr[6] != null) return num * DAY;
-      if (arr[7] != null) return num * DAY * 7;
-      if (arr[8] != null) return num * DAY * 30;
-      if (arr[9] != null) return num * YEAR;
+      if (arr[3] != null) return num * this.SEC;
+      if (arr[4] != null) return num * this.MIN;
+      if (arr[5] != null) return num * this.HOUR;
+      if (arr[6] != null) return num * this.DAY;
+      if (arr[7] != null) return num * this.DAY * 7;
+      if (arr[8] != null) return num * this.DAY * 30;
+      if (arr[9] != null) return num * this.YEAR;
       return num;
     }
     return;
@@ -52,22 +52,62 @@ export class Duration extends null {
    *
    * @param ms the duration in milliseconds
    * @param long if true, the output will be in the form of "1 year, 2 months, like this"
-   * @returns {string} the duration in human readable form
+   * @returns the duration in human readable form
    */
 
   public static format(
     ms: number,
     { long = false, separator = " " } = { long: false, separator: " " }
-  ): string {
+  ): string | undefined {
+    if (!ms || typeof ms !== "number") return;
     const pfx = ms < 0 ? "-" : "",
       abs = ms < 0 ? -ms : ms;
-    if (abs < SEC)
-      return ms + (long ? ` millisecond${ms != 1 ? "s" : ""}` : "ms");
-    if (abs < MIN) return this.fmt(abs / SEC, pfx, "second", long, separator);
-    if (abs < HOUR) return this.fmt(abs / MIN, pfx, "minute", long, separator);
-    if (abs < DAY) return this.fmt(abs / HOUR, pfx, "hour", long, separator);
-    if (abs < MONTH) return this.fmt(abs / DAY, pfx, "day", long, separator);
-    if (abs < YEAR) return this.fmt(abs / MONTH, pfx, "month", long, separator);
-    return this.fmt(abs / YEAR, pfx, "year", long, separator);
+    if (abs < this.SEC)
+      return (
+        ms + (long ? `${separator}millisecond${ms != 1 ? "s" : ""}` : "ms")
+      );
+    if (abs < this.MIN)
+      return this.fmt(abs / this.SEC, pfx, "second", long, separator);
+    if (abs < this.HOUR)
+      return this.fmt(abs / this.MIN, pfx, "minute", long, separator);
+    if (abs < this.DAY)
+      return this.fmt(abs / this.HOUR, pfx, "hour", long, separator);
+    if (abs < this.MONTH)
+      return this.fmt(abs / this.DAY, pfx, "day", long, separator);
+    if (abs < this.YEAR)
+      return this.fmt(abs / this.MONTH, pfx, "month", long, separator);
+    return this.fmt(abs / this.YEAR, pfx, "year", long, separator);
+  }
+
+  /**
+   *
+   * @param ms the duration in milliseconds
+   * @param options the options
+   * @returns the duration in human readable form
+   */
+
+  public static formatDuration(
+    ms: number,
+    format = "short"
+  ): string | undefined {
+    if (!ms || typeof ms !== "number") return;
+    let time = {
+      year: Math.floor(ms / (this.MONTH * 12)),
+      month: Math.floor(ms / this.MONTH) % 12,
+      day: Math.floor(ms / this.DAY) % 30,
+    };
+    const minTime = {
+      hour: Math.floor(ms / this.HOUR),
+      minute: Math.floor(ms / this.MIN) % 60,
+      second: Math.floor(ms / this.SEC) % 60,
+    };
+    if (format == "long") {
+      minTime.hour = Math.floor(ms / this.HOUR) % 24;
+      time = { ...time, ...minTime };
+    }
+    return Object.entries(format == "long" ? time : minTime)
+      .filter((val) => val[1] !== 0)
+      .map(([key, val]) => `${val} ${key}${val !== 1 ? "s" : ""}`)
+      .join(", ");
   }
 }

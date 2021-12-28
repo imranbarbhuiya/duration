@@ -47,10 +47,21 @@ Duration.format(-3 * 60000); //=> '-3m'
 Duration.format(Duration.parse("10 hours")); //=> '10h'
 
 // number => string (long)
-Duration.format(60000, true); //=> '1 minute'
-Duration.format(2 * 60000, true); //=> '2 minutes'
-Duration.format(-3 * 60000, true); //=> '-3 minutes'
-Duration.format(Duration.parse("10 hours"), true); //=> '10 hours'
+Duration.format(60000, { long: true }); //=> '1 minute'
+Duration.format(2 * 60000, { long: true }); //=> '2 minutes'
+Duration.format(-3 * 60000, { long: true }); //=> '-3 minutes'
+Duration.format(Duration.parse("10 hours"), { long: true }); //=> '10 hours'
+
+// number to string (no round up) (short)
+Duration.formatDuration(60000); //=> '1 minute'
+Duration.formatDuration(121000); //=> '2 minutes, 1 second'
+Duration.formatDuration(Duration.parse("10 hours")); //=> '10 hours'
+Duration.formatDuration(1000 * 60 * 60 * 60 * 24); //=> '24 hours'
+Duration.formatDuration(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
+
+// number to string (no round up) (long)
+Duration.formatDuration(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
+Duration.formatDuration(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
 ```
 
 ### Duration.parse(input)
@@ -67,7 +78,7 @@ The human-readable time string; eg: `10min`, `10m`, `10 minutes`.
 
 ### Duration.format(ms, { long: false, separator: " " })
 
-Returns: `Number`
+Returns: `String`
 
 Formats the millisecond count to a human-readable time string.
 
@@ -92,6 +103,26 @@ Type: `String`<br>
 Default: `" "`
 
 The separator to use between the unit and the number when long is true.
+
+### Duration.formatDuration(duration, format)
+
+Returns: `String`
+
+This is same as format but it won't round to the nearest unit instead it'll show all the units.
+
+#### duration
+
+Type: `Number`
+
+The duration in milliseconds.
+
+#### format
+
+Type: `long | short`<br>
+Default: `short`
+
+short: show only hour, minute, and second.
+long: show all the units. i.e., year, month, day, hour, minute, second.
 
 ## Credits
 
