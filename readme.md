@@ -21,33 +21,34 @@ npm i @imranbarbhuiya/duration
 ## Usage
 
 ```js
-import ms from "@imranbarbhuiya/duration";
+import duration from "@imranbarbhuiya/duration"; //es6
+const duration = require("@imranbarbhuiya/duration"); //es5
 
 // string => number
-ms.parse("2 days"); //=> 172800000
-ms.parse("1d"); //=> 86400000
-ms.parse("10h"); //=> 36000000
-ms.parse("2.5 hrs"); //=> 9000000
-ms.parse("2h"); //=> 7200000
-ms.parse("1m"); //=> 60000
-ms.parse("5s"); //=> 5000
-ms.parse("1y"); //=> 31557600000
-ms.parse("100"); //=> 100
-ms.parse("-3 days"); //=> -259200000
-ms.parse("-1h"); //=> -3600000
-ms.parse("-200"); //=> -200
+duration.parse("2 days"); //=> 172800000
+duration.parse("1d"); //=> 86400000
+duration.parse("10h"); //=> 36000000
+duration.parse("2.5 hrs"); //=> 9000000
+duration.parse("2h"); //=> 7200000
+duration.parse("1m"); //=> 60000
+duration.parse("5s"); //=> 5000
+duration.parse("1y"); //=> 31557600000
+duration.parse("100"); //=> 100
+duration.parse("-3 days"); //=> -259200000
+duration.parse("-1h"); //=> -3600000
+duration.parse("-200"); //=> -200
 
 // number => string
-ms.format(60000); //=> '1m'
-ms.format(2 * 60000); //=> '2m'
-ms.format(-3 * 60000); //=> '-3m'
-ms.format(ms.parse("10 hours")); //=> '10h'
+duration.format(60000); //=> '1m'
+duration.format(2 * 60000); //=> '2m'
+duration.format(-3 * 60000); //=> '-3m'
+duration.format(duration.parse("10 hours")); //=> '10h'
 
 // number => string (long)
-ms.format(60000, true); //=> '1 minute'
-ms.format(2 * 60000, true); //=> '2 minutes'
-ms.format(-3 * 60000, true); //=> '-3 minutes'
-ms.format(ms.parse("10 hours"), true); //=> '10 hours'
+duration.format(60000, true); //=> '1 minute'
+duration.format(2 * 60000, true); //=> '2 minutes'
+duration.format(-3 * 60000, true); //=> '-3 minutes'
+duration.format(duration.parse("10 hours"), true); //=> '10 hours'
 ```
 
 ### ms.parse(input)

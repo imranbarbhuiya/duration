@@ -8,6 +8,11 @@ const RGX =
   YEAR = DAY * 365.25;
 
 export default class Duration extends null {
+  /**
+   *
+   * @param {string} input the input string
+   * @returns  {number} the duration in milliseconds
+   */
   public static parse(input: string): number | undefined {
     let num: number;
     const arr = input.toLowerCase().match(RGX);
@@ -33,6 +38,13 @@ export default class Duration extends null {
     const num = (val | 0) === val ? val : ~~(val + 0.5);
     return pfx + num + (long ? " " + str + (num != 1 ? "s" : "") : str[0]);
   }
+
+  /**
+   *
+   * @param ms the duration in milliseconds
+   * @param long if true, the output will be in the form of "1 year, 2 months, like this"
+   * @returns {string} the duration in human readable form
+   */
 
   public static format(ms: number, long = false): string {
     const pfx = ms < 0 ? "-" : "",
