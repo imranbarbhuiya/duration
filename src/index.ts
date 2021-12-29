@@ -1,4 +1,4 @@
-module.exports = class Duration extends null {
+export default class Duration extends null {
   private static readonly RGX =
     /^(-?(?:\d+)?\.?\d+) *(m(?:illiseconds?|s(?:ecs?)?))?(s(?:ec(?:onds?|s)?)?)?(m(?:in(?:utes?|s)?)?)?(h(?:ours?|rs?)?)?(d(?:ays?)?)?(w(?:eeks?|ks?)?)?(mo(?:n(?:ths?|s)?)?)?(y(?:ears?|rs?)?)?$/;
   private static readonly SEC = 1e3;
@@ -116,4 +116,4 @@ module.exports = class Duration extends null {
       .map(([key, val]) => `${val} ${key}${val !== 1 ? "s" : ""}`)
       .join(", ");
   }
-};
+}
