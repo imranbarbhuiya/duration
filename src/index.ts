@@ -88,13 +88,13 @@ export default class Duration extends null {
   /**
    *
    * @param ms the duration in milliseconds
-   * @param options the options
+   * @param format long: show all days, moth, year, short: only the hour, minute and second
    * @returns the duration in human readable form
    */
 
   public static formatDuration(
     ms: number,
-    format = "short"
+    format: "short" | "long" = "short"
   ): string | undefined {
     if (!ms || typeof ms !== "number") return;
     let time = {
