@@ -26,50 +26,50 @@ npm i @imranbarbhuiya/duration
 ## Usage
 
 ```js
-import { Duration } from "@imranbarbhuiya/duration"; //es6
-const { Duration } = require("@imranbarbhuiya/duration"); //es5
+import duration from "@imranbarbhuiya/duration"; //es6
+const duration = require("@imranbarbhuiya/duration"); //es5
 
 // string => number
-Duration.parse("2 days"); //=> 172800000
-Duration.parse("1d"); //=> 86400000
-Duration.parse("10h"); //=> 36000000
-Duration.parse("2.5 hrs"); //=> 9000000
-Duration.parse("2h"); //=> 7200000
-Duration.parse("1m"); //=> 60000
-Duration.parse("5s"); //=> 5000
-Duration.parse("1mo"); //=> 2629743830
-Duration.parse("2 months"); //=> 525948730
-Duration.parse("1y"); //=> 31557600000
-Duration.parse("100"); //=> 100
-Duration.parse("-3 days"); //=> -259200000
-Duration.parse("-1h"); //=> -3600000
-Duration.parse("-200"); //=> -200
+duration.parse("2 days"); //=> 172800000
+duration.parse("1d"); //=> 86400000
+duration.parse("10h"); //=> 36000000
+duration.parse("2.5 hrs"); //=> 9000000
+duration.parse("2h"); //=> 7200000
+duration.parse("1m"); //=> 60000
+duration.parse("5s"); //=> 5000
+duration.parse("1mo"); //=> 2629743830
+duration.parse("2 months"); //=> 525948730
+duration.parse("1y"); //=> 31557600000
+duration.parse("100"); //=> 100
+duration.parse("-3 days"); //=> -259200000
+duration.parse("-1h"); //=> -3600000
+duration.parse("-200"); //=> -200
 
 // number => string
-Duration.format(60000); //=> '1m'
-Duration.format(2 * 60000); //=> '2m'
-Duration.format(-3 * 60000); //=> '-3m'
-Duration.format(Duration.parse("10 hours")); //=> '10h'
+duration.format(60000); //=> '1m'
+duration.format(2 * 60000); //=> '2m'
+duration.format(-3 * 60000); //=> '-3m'
+duration.format(duration.parse("10 hours")); //=> '10h'
 
 // number => string (long)
-Duration.format(60000, { long: true }); //=> '1 minute'
-Duration.format(2 * 60000, { long: true }); //=> '2 minutes'
-Duration.format(-3 * 60000, { long: true }); //=> '-3 minutes'
-Duration.format(Duration.parse("10 hours"), { long: true }); //=> '10 hours'
+duration.format(60000, { long: true }); //=> '1 minute'
+duration.format(2 * 60000, { long: true }); //=> '2 minutes'
+duration.format(-3 * 60000, { long: true }); //=> '-3 minutes'
+duration.format(duration.parse("10 hours"), { long: true }); //=> '10 hours'
 
 // number to string (no round up) (short)
-Duration.formatDuration(60000); //=> '1 minute'
-Duration.formatDuration(121000); //=> '2 minutes, 1 second'
-Duration.formatDuration(Duration.parse("10 hours")); //=> '10 hours'
-Duration.formatDuration(1000 * 60 * 60 * 60 * 24); //=> '24 hours'
-Duration.formatDuration(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
+duration.formatDuration(60000); //=> '1 minute'
+duration.formatDuration(121000); //=> '2 minutes, 1 second'
+duration.formatDuration(duration.parse("10 hours")); //=> '10 hours'
+duration.formatDuration(1000 * 60 * 60 * 60 * 24); //=> '24 hours'
+duration.formatDuration(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
 
 // number to string (no round up) (long)
-Duration.formatDuration(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
-Duration.formatDuration(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
+duration.formatDuration(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
+duration.formatDuration(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
 ```
 
-### Duration.parse(input)
+### duration.parse(input)
 
 Returns: `Number`
 
@@ -81,7 +81,7 @@ Type: `String`
 
 The human-readable time string; eg: `10min`, `10m`, `10 minutes`.
 
-### Duration.format(ms, { long: false, separator: " " })
+### duration.format(ms, { long: false, separator: " " })
 
 Returns: `String`
 
@@ -109,7 +109,7 @@ Default: `" "`
 
 The separator to use between the unit and the number when long is true.
 
-### Duration.formatDuration(duration, format)
+### duration.formatDuration(duration, format)
 
 Returns: `String`
 
