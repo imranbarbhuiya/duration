@@ -1,3 +1,6 @@
+![npm](https://img.shields.io/npm/v/@imranbarbhuiya/duration?style=for-the-badge)
+![npm](https://img.shields.io/npm/dw/@imranbarbhuiya/duration?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/imranbarbhuiya/duration?style=for-the-badge)
 ![Lint Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Lint/main?label=Lint&logo=eslint&style=for-the-badge)
 ![Build Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Build/main?label=Build&style=for-the-badge&logo=TypeScript)
 ![Test Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Test/main?label=Test&style=for-the-badge&logo=Jest)
