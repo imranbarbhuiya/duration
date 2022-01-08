@@ -19,9 +19,10 @@ I Just rewritten it in ts and added some features for my use cases. If you want 
 
 ## Added features
 
-### Multiple inputs
+### Multiple inputs and month support
 
 Now you can provide multiple inputs in `parse` function.
+Also you can provide month.
 
 ```js
 import { parse } from "@imranbarbhuiya/duration";
