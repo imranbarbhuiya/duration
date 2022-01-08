@@ -17,6 +17,34 @@ I Just rewritten it in ts and added some features for my use cases. If you want 
 
 ---
 
+## Added features
+
+### Multiple inputs
+
+Now you can provide multiple inputs in `parse` function.
+
+```js
+import { parse } from "@imranbarbhuiya/duration";
+parse("1s 1min 1h 1d 1w 1mo 1y"); // 34844461001
+```
+
+### FormatDuration
+
+It takes duration in ms and converts it to human-readable string. But with multiple units.
+
+```js
+import { formatDuration } from "@imranbarbhuiya/duration";
+formatDuration(86406000); // "24 hours, 6 seconds"
+```
+
+### Custom separator
+
+Custom separator can be provided in `format` function along with `long`.
+
+```js
+format(1000, { long: true, separator: "-" }); // "1-second"
+```
+
 ## Install
 
 ```bash
