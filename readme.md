@@ -13,7 +13,7 @@
 
 **\*NOTICE:** This is a fork of [@lukeed/ms](https://github.com/lukeed/ms) which is a fork of [vercel/ms](https://github.com/vercel/ms)!\*<br>
 
-I Just rewritten it in ts and object oriented.
+I Just rewritten it in ts and added some features for my use cases. If you want these features, then you can use it or I'll recommend using [@lukeed/ms](https://github.com/lukeed/ms) or [vercel/ms](https://github.com/vercel/ms) one.
 
 ---
 

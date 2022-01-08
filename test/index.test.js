@@ -21,6 +21,14 @@ test("should work with aliases", () => {
   expect(duration.parse("1 year")).toBe(duration.parse("1y"));
 });
 
+test("should work multiple inputs", () => {
+  expect(
+    duration.parse("1ms 1 second 1 minute 1 hour 1 day 1 week 1 month 1 year")
+  ).toBe(
+    1 + 1000 + 60000 + 3600000 + 86400000 + 604800000 + 2592000000 + 31557600000
+  );
+});
+
 test("should convert ms to human-readable string", () => {
   expect(duration.format(1)).toBe("1ms");
   expect(duration.format(1000)).toBe("1s");
