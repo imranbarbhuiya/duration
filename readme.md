@@ -155,9 +155,10 @@ The duration in milliseconds.
 Type: `long | short`<br>
 Default: `short`
 
-short: show only hour, minute, and second.
+short: show only hour, minute, and second.<br/>
 long: show all the units. i.e., year, month, day, hour, minute, second.
 
 ## Credits
 
-Lukeed for [@lukeed/ms](https://github.com/lukeed/ms) and Vercel for [vercel/ms](https://github.com/vercel/ms).
+Lukeed for [@lukeed/ms](https://github.com/lukeed/ms)<br/>
+Vercel for [vercel/ms](https://github.com/vercel/ms).
