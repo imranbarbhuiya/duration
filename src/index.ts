@@ -13,7 +13,7 @@ const YEAR = DAY * 365.25;
  * @param input the input string
  * @returns the duration in milliseconds
  */
-export const parse = (input: string): number | undefined => {
+const parse = (input: string): number | undefined => {
   if (!input || typeof input !== "string") return;
   let result = 0;
   input = input.toLowerCase();
@@ -61,7 +61,7 @@ const fmt = (
  * @returns the duration in human readable form
  */
 
-export const format = (
+const format = (
   ms: number,
   {
     long = false,
@@ -91,7 +91,7 @@ export const format = (
  * @returns the duration in human readable form
  */
 
-export const formatDuration = (
+const formatDuration = (
   ms: number,
   format: "short" | "long" = "short"
 ): string | undefined => {
@@ -115,3 +115,6 @@ export const formatDuration = (
     .map(([key, val]) => `${val} ${key}${val !== 1 ? "s" : ""}`)
     .join(", ");
 };
+
+export { parse, format, formatDuration };
+export default { parse, format, formatDuration };

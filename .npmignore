@@ -5,4 +5,3 @@ tsconfig.json
 test
 coverage
 .eslintignore
-benchmark
