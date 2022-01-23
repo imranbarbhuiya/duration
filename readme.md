@@ -9,14 +9,6 @@
 
 > A small and fast utility to convert milliseconds to human-readable string or vice versa.
 
----
-
-**NOTICE:-** This is a fork of [@lukeed/ms](https://github.com/lukeed/ms) which is a fork of [vercel/ms](https://github.com/vercel/ms)!<br>
-
-I Just rewritten it in ts and added some features for my use cases. If you want these features, then you can use it or I'll recommend using [@lukeed/ms](https://github.com/lukeed/ms) or [vercel/ms](https://github.com/vercel/ms) one.
-
----
-
 ## Install
 
 ```bash
@@ -24,35 +16,6 @@ npm i @imranbarbhuiya/duration
 ```
 
 ## Usage
-
-### Added features
-
-#### Multiple inputs and month support
-
-Now you can provide multiple inputs in `parse` function.
-Also you can provide month.
-
-```js
-import { parse } from "@imranbarbhuiya/duration";
-parse("1s 1min 1h 1d 1w 1mo 1y"); // 34844461001
-```
-
-#### FormatDuration
-
-It takes duration in ms and converts it to human-readable string. But with multiple units.
-
-```js
-import { formatDuration } from "@imranbarbhuiya/duration";
-formatDuration(86406000); // "24 hours, 6 seconds"
-```
-
-#### Custom separator
-
-Custom separator can be provided in `format` function along with `long`.
-
-```js
-format(1000, { long: true, separator: "-" }); // "1-second"
-```
 
 ```js
 import { parse, format, formatDuration } from "@imranbarbhuiya/duration"; //es6
