@@ -1,6 +1,6 @@
 {
   "name": "@imranbarbhuiya/duration",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A small and fast utility to convert milliseconds to human-readable string or vice versa.",
   "main": "index.js",
   "exports": {
