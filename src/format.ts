@@ -1,4 +1,4 @@
-import { DAY, HOUR, MIN, MONTH, SEC, YEAR } from "./constants";
+import { day, hour, minute, month, second, year } from "./constants";
 
 const fmt = (
   val: number,
@@ -39,12 +39,12 @@ export const format = (
   if (!ms || typeof ms !== "number") return;
   const pfx = ms < 0 ? "-" : "",
     abs = ms < 0 ? -ms : ms;
-  if (abs < SEC)
+  if (abs < second)
     return ms + (long ? `${separator}millisecond${ms != 1 ? "s" : ""}` : "ms");
-  if (abs < MIN) return fmt(abs / SEC, pfx, "second", long, separator);
-  if (abs < HOUR) return fmt(abs / MIN, pfx, "minute", long, separator);
-  if (abs < DAY) return fmt(abs / HOUR, pfx, "hour", long, separator);
-  if (abs < MONTH) return fmt(abs / DAY, pfx, "day", long, separator);
-  if (abs < YEAR) return fmt(abs / MONTH, pfx, "month", long, separator);
-  return fmt(abs / YEAR, pfx, "year", long, separator);
+  if (abs < minute) return fmt(abs / second, pfx, "second", long, separator);
+  if (abs < hour) return fmt(abs / minute, pfx, "minute", long, separator);
+  if (abs < day) return fmt(abs / hour, pfx, "hour", long, separator);
+  if (abs < month) return fmt(abs / day, pfx, "day", long, separator);
+  if (abs < year) return fmt(abs / month, pfx, "month", long, separator);
+  return fmt(abs / year, pfx, "year", long, separator);
 };

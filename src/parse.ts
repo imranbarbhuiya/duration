@@ -1,12 +1,12 @@
 import {
-  DAY,
+  day,
   globalRegex,
-  HOUR,
-  MIN,
-  MONTH,
+  hour,
+  minute,
+  month,
   regex,
-  SEC,
-  YEAR,
+  second,
+  year,
 } from "./constants";
 
 /**
@@ -24,13 +24,13 @@ export const parse = (input: string): number | undefined => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const match = m.match(regex)!;
     let num = parseFloat(match[1]);
-    if (match[3]) num = num * SEC;
-    if (match[4]) num = num * MIN;
-    if (match[5]) num = num * HOUR;
-    if (match[6]) num = num * DAY;
-    if (match[7]) num = num * DAY * 7;
-    if (match[8]) num = num * MONTH;
-    if (match[9]) num = num * YEAR;
+    if (match[3]) num = num * second;
+    if (match[4]) num = num * minute;
+    if (match[5]) num = num * hour;
+    if (match[6]) num = num * day;
+    if (match[7]) num = num * day * 7;
+    if (match[8]) num = num * month;
+    if (match[9]) num = num * year;
     result += num;
   }
   return result;
