@@ -35,9 +35,6 @@
     "convert",
     "duration"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
