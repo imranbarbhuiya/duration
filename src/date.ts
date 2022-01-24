@@ -35,12 +35,7 @@ export const date = (
   ];
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const dayOfWeek = dateObj.getDay();
-  const dayOfWeekStr = days[dayOfWeek];
-
-  const dayOfWeekShortStr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
-    dayOfWeek
-  ].substring(0, 1);
+  const dayOfWeekStr = days[day];
 
   const regex = /yyyy|yy|MMMM|MMM|MM|dd|HH|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x/g;
 
@@ -67,13 +62,13 @@ export const date = (
       case "SS":
         return padLeftZero(dateObj.getMilliseconds());
       case "Do":
-        return dayOfWeekStr;
+        return `${dayOfWeekStr}day`;
       case "DDD":
-        return dayOfWeekShortStr;
+        return dayOfWeekStr;
       case "DD":
-        return padLeftZero(dayOfWeek);
+        return padLeftZero(day);
       case "D":
-        return dayOfWeek.toString();
+        return day.toString();
       case "Z":
         return (dateObj.getTimezoneOffset() / 60).toString();
       case "A":
