@@ -1,5 +1,5 @@
-![npm](https://img.shields.io/npm/v/duration.js?style=for-the-badge)
-![npm](https://img.shields.io/npm/dw/duration.js?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/@imranbarbhuiya/duration?style=for-the-badge)
+![npm](https://img.shields.io/npm/dw/@imranbarbhuiya/duration?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/imranbarbhuiya/duration?style=for-the-badge)
 ![Lint Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Lint/main?label=Lint&logo=eslint&style=for-the-badge)
 ![Build Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Build/main?label=Build&style=for-the-badge&logo=TypeScript)
@@ -12,14 +12,14 @@
 ## Install
 
 ```bash
-npm i duration.js
+npm i @imranbarbhuiya/duration
 ```
 
 ## Usage
 
 ```js
-import { parse, format, prettyFormat } from "duration.js"; //es6
-const { parse, format, prettyFormat } = require("duration.js"); //es5
+import { parse, format, prettyFormat } from "@imranbarbhuiya/duration"; //es6
+const { parse, format, prettyFormat } = require("@imranbarbhuiya/duration"); //es5
 
 // string => number
 parse("1s 1min 1h 1d 1w 1mo 1y"); // 34844461001

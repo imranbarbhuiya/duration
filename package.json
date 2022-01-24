@@ -1,5 +1,5 @@
 {
-  "name": "duration.js",
+  "name": "@imranbarbhuiya/duration",
   "version": "4.0.2",
   "description": "A small and fast utility to convert milliseconds to human-readable string or vice versa.",
   "main": "index.js",
