@@ -42,8 +42,7 @@ export const date = (
     dayOfWeek
   ].substring(0, 1);
 
-  const regexStr = "yyyy|yy|MMMM|MMM|MM|dd|HH|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x";
-  const regex = new RegExp(regexStr, "g");
+  const regex = /yyyy|yy|MMMM|MMM|MM|dd|HH|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x/g;
 
   format = format.replace(regex, (match) => {
     switch (match) {
