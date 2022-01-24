@@ -73,7 +73,7 @@ export const date = (
       case "DD":
         return padLeftZero(dayOfWeek);
       case "D":
-        return padLeftZero(dayOfWeek);
+        return dayOfWeek.toString();
       case "Z":
         return (dateObj.getTimezoneOffset() / 60).toString();
       case "A":
@@ -81,7 +81,7 @@ export const date = (
       case "a":
         return dateObj.getHours() < 12 ? "am" : "pm";
       case "X":
-        return dateObj.getTime().toString();
+        return (dateObj.getTime() / 1000).toString();
       case "x":
         return dateObj.getTime().toString();
       default:
