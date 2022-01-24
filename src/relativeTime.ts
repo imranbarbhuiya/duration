@@ -46,47 +46,46 @@ export const relativeTime = (time: number | Date | string) => {
       return "a year ago";
     }
     return Math.floor(diff / year) + " years ago";
-  } else {
-    diff = -diff;
-    if (diff < second * 2) {
-      return "in a few seconds";
-    }
-    if (diff < minute) {
-      return "in " + Math.floor(diff / second) + " seconds";
-    }
-    if (diff < minute * 2) {
-      return "in a minute";
-    }
-    if (diff < hour) {
-      return "in " + Math.floor(diff / minute) + " minutes";
-    }
-    if (diff < hour * 2) {
-      return "in an hour";
-    }
-    if (diff < day) {
-      return "in " + Math.floor(diff / hour) + " hours";
-    }
-    if (diff < day * 2) {
-      return "tomorrow";
-    }
-    if (diff < day * 7) {
-      return "in " + Math.floor(diff / day) + " days";
-    }
-    if (diff < day * 14) {
-      return "in a week";
-    }
-    if (diff < day * 31) {
-      return "in " + Math.floor(diff / (day * 7)) + " weeks";
-    }
-    if (diff < day * 61) {
-      return "in a month";
-    }
-    if (diff < year) {
-      return "in " + Math.floor(diff / month) + " months";
-    }
-    if (diff < year * 2) {
-      return "in a year";
-    }
-    return "in " + Math.floor(diff / year) + " years";
   }
+  diff = -diff;
+  if (diff < second * 2) {
+    return "in a few seconds";
+  }
+  if (diff < minute) {
+    return "in " + Math.floor(diff / second) + " seconds";
+  }
+  if (diff < minute * 2) {
+    return "in a minute";
+  }
+  if (diff < hour) {
+    return "in " + Math.floor(diff / minute) + " minutes";
+  }
+  if (diff < hour * 2) {
+    return "in an hour";
+  }
+  if (diff < day) {
+    return "in " + Math.floor(diff / hour) + " hours";
+  }
+  if (diff < day * 2) {
+    return "tomorrow";
+  }
+  if (diff < day * 7) {
+    return "in " + Math.floor(diff / day) + " days";
+  }
+  if (diff < day * 14) {
+    return "in a week";
+  }
+  if (diff < day * 31) {
+    return "in " + Math.floor(diff / (day * 7)) + " weeks";
+  }
+  if (diff < day * 61) {
+    return "in a month";
+  }
+  if (diff < year) {
+    return "in " + Math.floor(diff / month) + " months";
+  }
+  if (diff < year * 2) {
+    return "in a year";
+  }
+  return "in " + Math.floor(diff / year) + " years";
 };
