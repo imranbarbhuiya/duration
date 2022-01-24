@@ -168,3 +168,33 @@ test("should return undefined for invalid inputs", () => {
   expect(duration.prettyFormat(true)).toBe(undefined);
   expect(duration.prettyFormat(false)).toBe(undefined);
 });
+
+test("should return formatted string from date", () => {
+  expect(duration.date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-Do")).toBe(
+    "2022-January-Sat"
+  );
+  expect(
+    duration.date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-Do HH:mm:ss")
+  ).toBe("2022-January-Sat 05:30:00");
+  expect(
+    duration.date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-Do HH:mm:ss.SS")
+  ).toBe("2022-January-Sat 05:30:00.00");
+  expect(
+    duration.date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-dd HH:mm:ss.SS")
+  ).toBe("2022-January-01 05:30:00.00");
+  expect(
+    duration.date("2022-01-01T00:00:00.000Z", "yyyy-MM-dd HH:mm:ss.SS")
+  ).toBe("2022-01-01 05:30:00.00");
+  expect(
+    duration.date("2022-01-01T00:00:00.000Z", "yyyy-MM-dd HH:mm:ss.SS Z")
+  ).toBe("2022-01-01 05:30:00.00 -5.5");
+  expect(
+    duration.date("2022-01-01T00:00:00.000Z", "yyyy-MM-dd HH:mm:ss.SS Z")
+  ).toBe(duration.date(1640995200000, "yyyy-MM-dd HH:mm:ss.SS Z"));
+  expect(duration.date(new Date(), "yyyy-MM-dd HH:mm:ss.SS Z")).toBe(
+    duration.date(Date.now(), "yyyy-MM-dd HH:mm:ss.SS Z")
+  );
+  expect(duration.date(new Date())).toBe(
+    duration.date(Date.now(), "yyyy-MM-dd HH:mm:ss")
+  );
+});
