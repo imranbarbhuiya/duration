@@ -21,10 +21,9 @@ export const parse = (input: string): number | undefined => {
   const matches = input.match(globalRegex);
   if (!matches) return;
   for (const m of matches) {
-    let num: number;
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const match = m.match(regex)!;
-    num = parseFloat(match[1]);
+    let num = parseFloat(match[1]);
     if (match[3]) num = num * SEC;
     if (match[4]) num = num * MIN;
     if (match[5]) num = num * HOUR;
