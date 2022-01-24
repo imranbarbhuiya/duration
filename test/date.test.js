@@ -18,7 +18,7 @@ test("should return formatted string from date", () => {
   ).toBe("2022-01-01 00:00:00.00");
   expect(
     duration.date("2022-01-01T00:00:00.000Z", "yyyy-MM-D HH:mm:ss.SS Z")
-  ).toBe("2022-01-1 00:00:00.00 +0.0");
+  ).toBe("2022-01-1 00:00:00.00 0");
   expect(
     duration.date("2022-01-01T00:00:00.000Z", "yyyy-MM-dd HH:mm:ss.SS Z")
   ).toBe(duration.date(1640995200000, "yyyy-MM-dd HH:mm:ss.SS Z"));
