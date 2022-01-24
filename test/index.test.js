@@ -118,25 +118,25 @@ test("should work with negative numbers and long:true", () => {
 
 test("should show all units without roundup", () => {
   // number to string (no round up) (short)
-  expect(duration.formatDuration(60000)).toBe("1 minute");
-  expect(duration.formatDuration(3600000)).toBe("1 hour");
-  expect(duration.formatDuration(86400000)).toBe("24 hours");
-  expect(duration.formatDuration(86406000)).toBe("24 hours, 6 seconds");
+  expect(duration.prettyFormat(60000)).toBe("1 minute");
+  expect(duration.prettyFormat(3600000)).toBe("1 hour");
+  expect(duration.prettyFormat(86400000)).toBe("24 hours");
+  expect(duration.prettyFormat(86406000)).toBe("24 hours, 6 seconds");
 });
 
 test("should show day and months when format is long", () => {
-  expect(duration.formatDuration(1000 * 60 * 60 * 24 * 30, "long")).toBe(
+  expect(duration.prettyFormat(1000 * 60 * 60 * 24 * 30, "long")).toBe(
     "1 month"
   );
-  expect(duration.formatDuration(1000 * 60 * 60 * 24 * 30 * 12, "long")).toBe(
+  expect(duration.prettyFormat(1000 * 60 * 60 * 24 * 30 * 12, "long")).toBe(
     "1 year"
   );
 });
 
 test("short should work same as no input", () => {
-  expect(duration.formatDuration(86406000)).toBe(
+  expect(duration.prettyFormat(86406000)).toBe(
     "24 hours, 6 seconds",
-    duration.formatDuration(86406000, "short")
+    duration.prettyFormat(86406000, "short")
   );
 });
 
@@ -159,12 +159,12 @@ test("should return undefined for invalid inputs", () => {
   expect(duration.format(true)).toBe(undefined);
   expect(duration.format(false)).toBe(undefined);
 
-  // formatDuration
-  expect(duration.formatDuration(NaN)).toBe(undefined);
-  expect(duration.formatDuration(null)).toBe(undefined);
-  expect(duration.formatDuration(undefined)).toBe(undefined);
-  expect(duration.formatDuration("")).toBe(undefined);
-  expect(duration.formatDuration("abc")).toBe(undefined);
-  expect(duration.formatDuration(true)).toBe(undefined);
-  expect(duration.formatDuration(false)).toBe(undefined);
+  // prettyFormat
+  expect(duration.prettyFormat(NaN)).toBe(undefined);
+  expect(duration.prettyFormat(null)).toBe(undefined);
+  expect(duration.prettyFormat(undefined)).toBe(undefined);
+  expect(duration.prettyFormat("")).toBe(undefined);
+  expect(duration.prettyFormat("abc")).toBe(undefined);
+  expect(duration.prettyFormat(true)).toBe(undefined);
+  expect(duration.prettyFormat(false)).toBe(undefined);
 });

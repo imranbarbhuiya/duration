@@ -91,7 +91,7 @@ const format = (
  * @returns the duration in human readable form
  */
 
-const formatDuration = (
+const prettyFormat = (
   ms: number,
   format: "short" | "long" = "short"
 ): string | undefined => {
@@ -116,5 +116,5 @@ const formatDuration = (
     .join(", ");
 };
 
-export { parse, format, formatDuration };
-export default { parse, format, formatDuration };
+export { parse, format, prettyFormat };
+export default { parse, format, prettyFormat };

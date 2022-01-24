@@ -1,5 +1,5 @@
-![npm](https://img.shields.io/npm/v/@imranbarbhuiya/duration?style=for-the-badge)
-![npm](https://img.shields.io/npm/dw/@imranbarbhuiya/duration?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/duration.js?style=for-the-badge)
+![npm](https://img.shields.io/npm/dw/duration.js?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/imranbarbhuiya/duration?style=for-the-badge)
 ![Lint Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Lint/main?label=Lint&logo=eslint&style=for-the-badge)
 ![Build Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Build/main?label=Build&style=for-the-badge&logo=TypeScript)
@@ -12,16 +12,17 @@
 ## Install
 
 ```bash
-npm i @imranbarbhuiya/duration
+npm i duration.js
 ```
 
 ## Usage
 
 ```js
-import { parse, format, formatDuration } from "@imranbarbhuiya/duration"; //es6
-const { parse, format, formatDuration } = require("@imranbarbhuiya/duration"); //es5
+import { parse, format, prettyFormat } from "duration.js"; //es6
+const { parse, format, prettyFormat } = require("duration.js"); //es5
 
 // string => number
+parse("1s 1min 1h 1d 1w 1mo 1y"); // 34844461001
 parse("2 days"); //=> 172800000
 parse("1d"); //=> 86400000
 parse("10h"); //=> 36000000
@@ -50,15 +51,15 @@ format(-3 * 60000, { long: true }); //=> '-3 minutes'
 format(parse("10 hours"), { long: true }); //=> '10 hours'
 
 // number to string (no round up) (short)
-formatDuration(60000); //=> '1 minute'
-formatDuration(121000); //=> '2 minutes, 1 second'
-formatDuration(parse("10 hours")); //=> '10 hours'
-formatDuration(1000 * 60 * 60 * 60 * 24); //=> '24 hours'
-formatDuration(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
+prettyFormat(60000); //=> '1 minute'
+prettyFormat(121000); //=> '2 minutes, 1 second'
+prettyFormat(parse("10 hours")); //=> '10 hours'
+prettyFormat(1000 * 60 * 60 * 60 * 24); //=> '24 hours'
+prettyFormat(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
 
 // number to string (no round up) (long)
-formatDuration(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
-formatDuration(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
+prettyFormat(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
+prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
 ```
 
 ### parse(input)
@@ -101,7 +102,7 @@ Default: `" "`
 
 The separator to use between the unit and the number when long is true.
 
-### formatDuration(duration, format)
+### prettyFormat(duration, format)
 
 Returns: `string`
 
