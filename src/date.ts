@@ -42,24 +42,53 @@ export const date = (
     dayOfWeek
   ].substring(0, 1);
 
-  return format
-    .replace("yyyy", `${year}`)
-    .replace("yy", `${year % 100}`.slice(2))
-    .replace("MMMM", months[month - 1])
-    .replace("MMM", months[month - 1].substring(0, 3))
-    .replace("MM", padLeftZero(month))
-    .replace("dd", padLeftZero(day))
-    .replace("HH", padLeftZero(hour))
-    .replace("mm", padLeftZero(minute))
-    .replace("ss", padLeftZero(dateObj.getSeconds()))
-    .replace("SS", padLeftZero(dateObj.getMilliseconds()))
-    .replace("Do", dayOfWeekStr)
-    .replace("D", dayOfWeekShortStr)
-    .replace("DD", padLeftZero(day))
-    .replace("DDD", `${dateObj.getDay()}`)
-    .replace("Z", `${dateObj.getTimezoneOffset() / 60}`)
-    .replace("A", hour < 12 ? "AM" : "PM")
-    .replace("a", hour < 12 ? "am" : "pm")
-    .replace("X", `${dateObj.getTime() / 1000}`)
-    .replace("x", `${dateObj.getTime()}`);
+  const regexStr = "yyyy|yy|MMMM|MMM|MM|dd|HH|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x";
+  const regex = new RegExp(regexStr, "g");
+
+  format = format.replace(regex, (match) => {
+    switch (match) {
+      case "yyyy":
+        return year.toString();
+      case "yy":
+        return year.toString().substring(2);
+      case "MMMM":
+        return months[month - 1];
+      case "MMM":
+        return months[month - 1].substring(0, 3);
+      case "MM":
+        return padLeftZero(month);
+      case "dd":
+        return padLeftZero(day);
+      case "HH":
+        return padLeftZero(hour);
+      case "mm":
+        return padLeftZero(minute);
+      case "ss":
+        return padLeftZero(dateObj.getSeconds());
+      case "SS":
+        return padLeftZero(dateObj.getMilliseconds());
+      case "Do":
+        return dayOfWeekStr;
+      case "DDD":
+        return dayOfWeekShortStr;
+      case "DD":
+        return padLeftZero(dayOfWeek);
+      case "D":
+        return padLeftZero(dayOfWeek);
+      case "Z":
+        return (dateObj.getTimezoneOffset() / 60).toString();
+      case "A":
+        return dateObj.getHours() < 12 ? "AM" : "PM";
+      case "a":
+        return dateObj.getHours() < 12 ? "am" : "pm";
+      case "X":
+        return dateObj.getTime().toString();
+      case "x":
+        return dateObj.getTime().toString();
+      default:
+        return match;
+    }
+  });
+
+  return format;
 };
