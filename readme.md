@@ -18,8 +18,20 @@ npm i @imranbarbhuiya/duration
 ## Usage
 
 ```js
-import { parse, format, prettyFormat } from "@imranbarbhuiya/duration"; //es6
-const { parse, format, prettyFormat } = require("@imranbarbhuiya/duration"); //es5
+import {
+  parse,
+  format,
+  prettyFormat,
+  date,
+  relativeTime,
+} from "@imranbarbhuiya/duration"; //es6
+const {
+  parse,
+  format,
+  prettyFormat,
+  date,
+  relativeTime,
+} = require("@imranbarbhuiya/duration"); //es5
 
 // string => number
 parse("1s 1min 1h 1d 1w 1mo 1y"); // 34844461001
@@ -60,6 +72,12 @@ prettyFormat(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
 // number to string (no round up) (long)
 prettyFormat(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
 prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
+
+// format a date
+date("2022-01-01", "YYYY-MMM-Do"); //=> '2022-Jan-Saturday'
+
+// format a date as relative date
+relativeTime(new Date() + 1000); // in a few seconds
 ```
 
 ### parse(input)
@@ -122,7 +140,29 @@ Default: `short`
 short: show only hour, minute, and second.<br/>
 long: show all the units. i.e., year, month, day, hour, minute, second.
 
-## Credits
+### date(date, format)
 
-Lukeed for [@lukeed/ms](https://github.com/lukeed/ms)<br/>
-Vercel for [vercel/ms](https://github.com/vercel/ms).
+Returns: `string`
+
+Format a date as a string.
+
+#### date
+
+Type: `Date | string | number`
+The date to format.
+
+#### format
+
+Type: `string`
+default: `yyyy-MM-dd HH:mm:ss`
+
+The format of the output string.
+
+### relativeTime(date)
+
+Format a date as relative time.
+
+#### date
+
+Type: `Date | string | number`
+The date to format.
