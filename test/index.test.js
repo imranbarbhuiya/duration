@@ -1,5 +1,5 @@
 const duration = require("../index");
-console.log(duration.date("2020-01-01", "MMMM"));
+
 test("should return ms from a string", () => {
   expect(duration.parse("1ms")).toBe(1);
   expect(duration.parse("1s")).toBe(1000);
