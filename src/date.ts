@@ -10,9 +10,11 @@ const padLeftZero = (str: number) => {
  */
 export const date = (
   date: Date | number | string,
-  format = "yyyy-MM-dd HH:mm:ss"
+  format = "yyyy-MM-dd HH:mm:ss",
+  locale = "en-US"
 ): string => {
   const dateObj = date instanceof Date ? date : new Date(date);
+  dateObj.toLocaleDateString();
   const year = dateObj.getFullYear();
   const month = dateObj.getMonth() + 1;
   const day = dateObj.getDate();
@@ -34,8 +36,9 @@ export const date = (
     "December",
   ];
 
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const dayOfWeekStr = days[day % 7];
+  const dayOfWeekStr = dateObj.toLocaleDateString(locale, {
+    weekday: "long",
+  });
 
   const regex = /yyyy|yy|MMMM|MMM|MM|dd|HH|hh|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x/g;
 
@@ -51,9 +54,11 @@ export const date = (
         return months[month - 1].substring(0, 3);
       case "MM":
         return padLeftZero(month);
-      case "dd" || "DD":
+      case "dd":
+      case "DD":
         return padLeftZero(day);
-      case "HH" || "hh":
+      case "HH":
+      case "hh":
         return padLeftZero(hour);
       case "mm":
         return padLeftZero(minute);
@@ -62,9 +67,9 @@ export const date = (
       case "SS":
         return padLeftZero(dateObj.getMilliseconds());
       case "Do":
-        return `${dayOfWeekStr}day`;
+        return `${dayOfWeekStr}`;
       case "DDD":
-        return dayOfWeekStr;
+        return dayOfWeekStr.substring(0, 3);
       case "D":
         return day.toString();
       case "Z":

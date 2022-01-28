@@ -2,17 +2,17 @@ const duration = require("../index");
 
 test("should return formatted string from date", () => {
   expect(duration.date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-Do")).toBe(
-    "2022-January-Monday"
+    "2022-January-Saturday"
   );
   expect(duration.date("2022-01-01T00:00:00.000Z", "yy-MMMM-Do HH:mm:ss")).toBe(
-    "22-January-Monday 00:00:00"
+    "22-January-Saturday 00:00:00"
   );
   expect(
     duration.date("2022-01-01T00:00:00.000Z", "yyyy-MMM-Do HH:mm:ss.SS")
-  ).toBe("2022-Jan-Monday 00:00:00.00");
+  ).toBe("2022-Jan-Saturday 00:00:00.00");
   expect(
     duration.date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-DDD HH:mm:ss.SS")
-  ).toBe("2022-January-Mon 00:00:00.00");
+  ).toBe("2022-January-Sat 00:00:00.00");
   expect(
     duration.date("2022-01-01T00:00:00.000Z", "yyyy-MM-DD HH:mm:ss.SS")
   ).toBe("2022-01-01 00:00:00.00");
