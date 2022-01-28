@@ -35,9 +35,9 @@ export const date = (
   ];
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const dayOfWeekStr = days[day];
+  const dayOfWeekStr = days[day % 7];
 
-  const regex = /yyyy|yy|MMMM|MMM|MM|dd|HH|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x/g;
+  const regex = /yyyy|yy|MMMM|MMM|MM|dd|HH|hh|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x/g;
 
   format = format.replace(regex, (match) => {
     switch (match) {
@@ -51,9 +51,9 @@ export const date = (
         return months[month - 1].substring(0, 3);
       case "MM":
         return padLeftZero(month);
-      case "dd":
+      case "dd" || "DD":
         return padLeftZero(day);
-      case "HH":
+      case "HH" || "hh":
         return padLeftZero(hour);
       case "mm":
         return padLeftZero(minute);
@@ -65,8 +65,6 @@ export const date = (
         return `${dayOfWeekStr}day`;
       case "DDD":
         return dayOfWeekStr;
-      case "DD":
-        return padLeftZero(day);
       case "D":
         return day.toString();
       case "Z":
