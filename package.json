@@ -21,7 +21,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "docs": "npx typedoc src/index.ts",
+    "docs": "npx typedoc src/index.ts --name duration",
     "build": "tsc -p tsconfig.json",
     "lint": "eslint .",
     "pretest": "npm run build",
@@ -57,5 +57,5 @@
   "bugs": {
     "url": "https://github.com/imranbarbhuiya/duration/issues"
   },
-  "homepage": "https://github.com/imranbarbhuiya/duration#readme"
+  "homepage": "https://duration.js.org/"
 }

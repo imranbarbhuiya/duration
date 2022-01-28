@@ -1,5 +1,12 @@
 import { second, minute, hour, day, year, month } from "./constants";
 
+/**
+ * Format a date as relative time.
+ *
+ * @param time the time to format
+ * @returns
+ */
+
 export const relativeTime = (time: number | Date | string) => {
   const givenDate = time instanceof Date ? time : new Date(time);
   const now = new Date();

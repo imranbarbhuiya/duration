@@ -20,9 +20,10 @@ const fmt = (
 };
 
 /**
+ * Formats the millisecond count to a human-readable time string.
  *
  * @param ms the duration in milliseconds
- * @param long if true, the output will be in the form of "1 year, 2 months, like this"
+ * @param options other format options
  * @returns the duration in human readable form
  */
 

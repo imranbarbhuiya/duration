@@ -10,6 +10,7 @@ import {
 } from "./constants";
 
 /**
+ * Parses the input string, returning the number of milliseconds.
  *
  * @param input the input string
  * @returns the duration in milliseconds

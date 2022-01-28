@@ -3,6 +3,7 @@ const padLeftZero = (str: number) => {
 };
 
 /**
+ * Format a date as a string.
  *
  * @param date the date to format
  * @param format the format to use
