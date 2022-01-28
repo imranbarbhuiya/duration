@@ -32,7 +32,21 @@ const {
   date,
   relativeTime,
 } = require("@imranbarbhuiya/duration"); //es5
+```
 
+### parse(input)
+
+Returns: `number`
+
+Parses the input string, returning the number of milliseconds.
+
+#### input
+
+Type: `string`
+
+The human-readable time string; eg: `10min`, `10m`, `10 minutes`.
+
+```js
 // string => number
 parse("1s 1min 1h 1d 1w 1mo 1y"); // 34844461001
 parse("2 days"); //=> 172800000
@@ -49,48 +63,7 @@ parse("100"); //=> 100
 parse("-3 days"); //=> -259200000
 parse("-1h"); //=> -3600000
 parse("-200"); //=> -200
-
-// number => string
-format(60000); //=> '1m'
-format(2 * 60000); //=> '2m'
-format(-3 * 60000); //=> '-3m'
-format(parse("10 hours")); //=> '10h'
-
-// number => string (long)
-format(60000, { long: true }); //=> '1 minute'
-format(2 * 60000, { long: true }); //=> '2 minutes'
-format(-3 * 60000, { long: true }); //=> '-3 minutes'
-format(parse("10 hours"), { long: true }); //=> '10 hours'
-
-// number to string (no round up) (short)
-prettyFormat(60000); //=> '1 minute'
-prettyFormat(121000); //=> '2 minutes, 1 second'
-prettyFormat(parse("10 hours")); //=> '10 hours'
-prettyFormat(1000 * 60 * 60 * 60 * 24); //=> '24 hours'
-prettyFormat(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
-
-// number to string (no round up) (long)
-prettyFormat(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
-prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
-
-// format a date
-date("2022-01-01", "YYYY-MMM-Do"); //=> '2022-Jan-Saturday'
-
-// format a date as relative date
-relativeTime(new Date() + 1000); // in a few seconds
 ```
-
-### parse(input)
-
-Returns: `number`
-
-Parses the input string, returning the number of milliseconds.
-
-#### input
-
-Type: `string`
-
-The human-readable time string; eg: `10min`, `10m`, `10 minutes`.
 
 ### format(ms, { long: false, separator: " " })
 
@@ -120,6 +93,20 @@ Default: `" "`
 
 The separator to use between the unit and the number when long is true.
 
+```js
+// number => string
+format(60000); //=> '1m'
+format(2 * 60000); //=> '2m'
+format(-3 * 60000); //=> '-3m'
+format(parse("10 hours")); //=> '10h'
+
+// number => string (long)
+format(60000, { long: true }); //=> '1 minute'
+format(2 * 60000, { long: true }); //=> '2 minutes'
+format(-3 * 60000, { long: true }); //=> '-3 minutes'
+format(parse("10 hours"), { long: true }); //=> '10 hours'
+```
+
 ### prettyFormat(duration, format)
 
 Returns: `string`
@@ -140,6 +127,19 @@ Default: `short`
 short: show only hour, minute, and second.<br/>
 long: show all the units. i.e., year, month, day, hour, minute, second.
 
+```js
+// number to string (no round up) (short)
+prettyFormat(60000); //=> '1 minute'
+prettyFormat(121000); //=> '2 minutes, 1 second'
+prettyFormat(parse("10 hours")); //=> '10 hours'
+prettyFormat(1000 * 60 * 60 * 60 * 24); //=> '24 hours'
+prettyFormat(1000 * 60 * 60 * 60 * 24 * 30); //=> '72 hours'
+
+// number to string (no round up) (long)
+prettyFormat(1000 * 60 * 60 * 60 * 24, "long"); //=> '1 day'
+prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> '1 month'
+```
+
 ### date(date, format)
 
 Returns: `string`
@@ -158,6 +158,13 @@ default: `yyyy-MM-dd HH:mm:ss`
 
 The format of the output string.
 
+```js
+// format a date
+date("2022-01-01", "YYYY-MMM-Do"); //=> '2022-Jan-Saturday'
+date("2022-01-01T00:00:00.000Z", "yyyy-MM-D HH:mm:ss.SS Z"); //=> "2022-01-1 00:00:00.00 0"
+date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-DDD HH:mm:ss.SS"); //=> "2022-January-Sat 00:00:00.00"
+```
+
 ### relativeTime(date)
 
 Format a date as relative time.
@@ -166,3 +173,8 @@ Format a date as relative time.
 
 Type: `Date | string | number`
 The date to format.
+
+```js
+// format a date as relative date
+relativeTime(new Date() + 1000); // in a few seconds
+```
