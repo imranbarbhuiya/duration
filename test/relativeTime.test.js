@@ -2,6 +2,7 @@ const duration = require("../index");
 
 test("should show relative time negative part", () => {
   expect(duration.relativeTime(Date.now() - 1000)).toBe("just now");
+  expect(duration.relativeTime(Date.now() - 5000)).toBe("5 seconds ago");
   expect(duration.relativeTime(Date.now() - 1000 * 60)).toBe("a minute ago");
   expect(duration.relativeTime(Date.now() - 1000 * 60 * 60)).toBe(
     "an hour ago"
