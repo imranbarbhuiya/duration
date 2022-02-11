@@ -9,6 +9,7 @@ test("should return undefined for invalid inputs", () => {
   expect(duration.parse("abc")).toBe(undefined);
   expect(duration.parse(true)).toBe(undefined);
   expect(duration.parse(false)).toBe(undefined);
+  expect(duration.parse(10)).toBe(undefined);
 
   // format
   expect(duration.format(NaN)).toBe(undefined);
