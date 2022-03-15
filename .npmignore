@@ -6,6 +6,7 @@ src
 tests
 .eslintignore
 .eslintrc
+.yarnrc.yml
 jest.config.mjs
 tsconfig.json
 
