@@ -1,4 +1,4 @@
-import { second, minute, hour, day, year, month } from "./constants";
+import { second, minute, hour, day, year, month } from './constants';
 
 /**
  * Format a date as relative time.
@@ -14,85 +14,85 @@ export const relativeTime = (time: number | Date | string) => {
   let diff = now.getTime() - givenDate.getTime();
   if (diff > 0) {
     if (diff < second * 2) {
-      return "just now";
+      return 'just now';
     }
     if (diff < minute) {
-      return Math.floor(diff / second) + " seconds ago";
+      return Math.floor(diff / second) + ' seconds ago';
     }
     if (diff < minute * 2) {
-      return "a minute ago";
+      return 'a minute ago';
     }
     if (diff < hour) {
-      return Math.floor(diff / minute) + " minutes ago";
+      return Math.floor(diff / minute) + ' minutes ago';
     }
     if (diff < hour * 2) {
-      return "an hour ago";
+      return 'an hour ago';
     }
     if (diff < day) {
-      return Math.floor(diff / hour) + " hours ago";
+      return Math.floor(diff / hour) + ' hours ago';
     }
     if (diff < day * 2) {
-      return "yesterday";
+      return 'yesterday';
     }
     if (diff < day * 7) {
-      return Math.floor(diff / day) + " days ago";
+      return Math.floor(diff / day) + ' days ago';
     }
     if (diff < day * 14) {
-      return "a week ago";
+      return 'a week ago';
     }
     if (diff < day * 31) {
-      return Math.floor(diff / (day * 7)) + " weeks ago";
+      return Math.floor(diff / (day * 7)) + ' weeks ago';
     }
     if (diff < day * 61) {
-      return "a month ago";
+      return 'a month ago';
     }
     if (diff < year) {
-      return Math.floor(diff / month) + " months ago";
+      return Math.floor(diff / month) + ' months ago';
     }
     if (diff < year * 2) {
-      return "a year ago";
+      return 'a year ago';
     }
-    return Math.floor(diff / year) + " years ago";
+    return Math.floor(diff / year) + ' years ago';
   }
   diff = -diff;
   if (diff < second * 2) {
-    return "in a few seconds";
+    return 'in a few seconds';
   }
   if (diff < minute) {
-    return "in " + Math.floor(diff / second) + " seconds";
+    return 'in ' + Math.floor(diff / second) + ' seconds';
   }
   if (diff < minute * 2) {
-    return "in a minute";
+    return 'in a minute';
   }
   if (diff < hour) {
-    return "in " + Math.floor(diff / minute) + " minutes";
+    return 'in ' + Math.floor(diff / minute) + ' minutes';
   }
   if (diff < hour * 2) {
-    return "in an hour";
+    return 'in an hour';
   }
   if (diff < day) {
-    return "in " + Math.floor(diff / hour) + " hours";
+    return 'in ' + Math.floor(diff / hour) + ' hours';
   }
   if (diff < day * 2) {
-    return "tomorrow";
+    return 'tomorrow';
   }
   if (diff < day * 7) {
-    return "in " + Math.floor(diff / day) + " days";
+    return 'in ' + Math.floor(diff / day) + ' days';
   }
   if (diff < day * 14) {
-    return "in a week";
+    return 'in a week';
   }
   if (diff < day * 31) {
-    return "in " + Math.floor(diff / (day * 7)) + " weeks";
+    return 'in ' + Math.floor(diff / (day * 7)) + ' weeks';
   }
   if (diff < day * 61) {
-    return "in a month";
+    return 'in a month';
   }
   if (diff < year) {
-    return "in " + Math.floor(diff / month) + " months";
+    return 'in ' + Math.floor(diff / month) + ' months';
   }
   if (diff < year * 2) {
-    return "in a year";
+    return 'in a year';
   }
-  return "in " + Math.floor(diff / year) + " years";
+  return 'in ' + Math.floor(diff / year) + ' years';
 };

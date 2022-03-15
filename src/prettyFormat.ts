@@ -5,13 +5,13 @@
  * @returns the duration in human readable form
  */
 
-import { day, hour, minute, month, second } from "./constants";
+import { day, hour, minute, month, second } from './constants';
 
 export const prettyFormat = (
   ms: number,
-  format: "short" | "long" = "short"
+  format: 'short' | 'long' = 'short'
 ): string | undefined => {
-  if (!ms || typeof ms !== "number") return;
+  if (!ms || typeof ms !== 'number') return;
   let time = {
     year: Math.floor(ms / (month * 12)),
     month: Math.floor(ms / month) % 12,
@@ -22,12 +22,12 @@ export const prettyFormat = (
     minute: Math.floor(ms / minute) % 60,
     second: Math.floor(ms / second) % 60,
   };
-  if (format == "long") {
+  if (format == 'long') {
     minTime.hour = Math.floor(ms / hour) % 24;
     time = { ...time, ...minTime };
   }
-  return Object.entries(format == "long" ? time : minTime)
+  return Object.entries(format == 'long' ? time : minTime)
     .filter((val) => val[1] !== 0)
-    .map(([key, val]) => `${val} ${key}${val !== 1 ? "s" : ""}`)
-    .join(", ");
+    .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)
+    .join(', ');
 };

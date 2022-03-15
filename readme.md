@@ -28,35 +28,35 @@ import {
   prettyFormat,
   date,
   relativeTime,
-} from "@imranbarbhuiya/duration"; //es6
+} from '@imranbarbhuiya/duration'; //es6
 const {
   parse,
   format,
   prettyFormat,
   date,
   relativeTime,
-} = require("@imranbarbhuiya/duration"); //es5
+} = require('@imranbarbhuiya/duration'); //es5
 ```
 
 ### parse(input)
 
 ```js
 // string => number
-parse("1s 1min 1h 1d 1w 1mo 1y"); // 34844461001
-parse("2 days"); //=> 172800000
-parse("1d"); //=> 86400000
-parse("10h"); //=> 36000000
-parse("2.5 hrs"); //=> 9000000
-parse("2h"); //=> 7200000
-parse("1m"); //=> 60000
-parse("5s"); //=> 5000
-parse("1mo"); //=> 2629743830
-parse("2 months"); //=> 525948730
-parse("1y"); //=> 31557600000
-parse("100"); //=> 100
-parse("-3 days"); //=> -259200000
-parse("-1h"); //=> -3600000
-parse("-200"); //=> -200
+parse('1s 1min 1h 1d 1w 1mo 1y'); // 34844461001
+parse('2 days'); //=> 172800000
+parse('1d'); //=> 86400000
+parse('10h'); //=> 36000000
+parse('2.5 hrs'); //=> 9000000
+parse('2h'); //=> 7200000
+parse('1m'); //=> 60000
+parse('5s'); //=> 5000
+parse('1mo'); //=> 2629743830
+parse('2 months'); //=> 525948730
+parse('1y'); //=> 31557600000
+parse('100'); //=> 100
+parse('-3 days'); //=> -259200000
+parse('-1h'); //=> -3600000
+parse('-200'); //=> -200
 ```
 
 ### format(ms, { long: false, separator: " " })
@@ -66,13 +66,13 @@ parse("-200"); //=> -200
 format(60000); //=> "1m"
 format(2 * 60000); //=> "2m"
 format(-3 * 60000); //=> "-3m"
-format(parse("10 hours")); //=> "10h"
+format(parse('10 hours')); //=> "10h"
 
 // number => string (long)
 format(60000, { long: true }); //=> "1 minute"
 format(2 * 60000, { long: true }); //=> "2 minutes"
 format(-3 * 60000, { long: true }); //=> "-3 minutes"
-format(parse("10 hours"), { long: true }); //=> "10 hours"
+format(parse('10 hours'), { long: true }); //=> "10 hours"
 ```
 
 ### prettyFormat(duration, format)
@@ -81,22 +81,22 @@ format(parse("10 hours"), { long: true }); //=> "10 hours"
 // number to string (no round up) (short)
 prettyFormat(60000); //=> "1 minute"
 prettyFormat(121000); //=> "2 minutes, 1 second"
-prettyFormat(parse("10 hours")); //=> "10 hours"
+prettyFormat(parse('10 hours')); //=> "10 hours"
 prettyFormat(1000 * 60 * 60 * 60 * 24); //=> "24 hours"
 prettyFormat(1000 * 60 * 60 * 60 * 24 * 30); //=> "72 hours"
 
 // number to string (no round up) (long)
-prettyFormat(1000 * 60 * 60 * 60 * 24, "long"); //=> "1 day"
-prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, "long"); //=> "1 month"
+prettyFormat(1000 * 60 * 60 * 60 * 24, 'long'); //=> "1 day"
+prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, 'long'); //=> "1 month"
 ```
 
 ### date(date, format)
 
 ```js
 // format a date
-date("2022-01-01", "YYYY-MMM-Do"); //=> "2022-Jan-Saturday"
-date("2022-01-01T00:00:00.000Z", "yyyy-MM-D HH:mm:ss.SS Z"); //=> "2022-01-1 00:00:00.00 0"
-date("2022-01-01T00:00:00.000Z", "yyyy-MMMM-DDD HH:mm:ss.SS"); //=> "2022-January-Sat 00:00:00.00"
+date('2022-01-01', 'YYYY-MMM-Do'); //=> "2022-Jan-Saturday"
+date('2022-01-01T00:00:00.000Z', 'yyyy-MM-D HH:mm:ss.SS Z'); //=> "2022-01-1 00:00:00.00 0"
+date('2022-01-01T00:00:00.000Z', 'yyyy-MMMM-DDD HH:mm:ss.SS'); //=> "2022-January-Sat 00:00:00.00"
 ```
 
 ### relativeTime(date)

@@ -1,4 +1,4 @@
-import { day, hour, minute, month, regex, second, year } from "./constants";
+import { day, hour, minute, month, regex, second, year } from './constants';
 
 /**
  * Parses the input string, returning the number of milliseconds.
@@ -7,7 +7,7 @@ import { day, hour, minute, month, regex, second, year } from "./constants";
  * @returns the duration in milliseconds
  */
 export const parse = (input: string): number | undefined => {
-  if (!input || typeof input !== "string") return;
+  if (!input || typeof input !== 'string') return;
   let result = 0;
   input = input.toLowerCase();
   const matches = input.matchAll(regex);

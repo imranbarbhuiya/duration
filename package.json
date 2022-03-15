@@ -24,6 +24,7 @@
     "docs": "npx typedoc src/index.ts --name duration",
     "build": "tsc -p tsconfig.json",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "pretest": "npm run build",
     "test": "jest",
     "prepublish": "npm run build"

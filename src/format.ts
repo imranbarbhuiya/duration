@@ -1,4 +1,4 @@
-import { day, hour, minute, month, second, year } from "./constants";
+import { day, hour, minute, month, second, year } from './constants';
 
 const fmt = (
   val: number,
@@ -12,8 +12,8 @@ const fmt = (
     pfx +
     num +
     (long
-      ? separator + str + (num != 1 ? "s" : "")
-      : str == "month"
+      ? separator + str + (num != 1 ? 's' : '')
+      : str == 'month'
       ? str.slice(0, 2)
       : str[0])
   );
@@ -31,21 +31,21 @@ export const format = (
   ms: number,
   {
     long = false,
-    separator = " ",
+    separator = ' ',
   }: {
     long: boolean;
     separator?: string;
-  } = { long: false, separator: " " }
+  } = { long: false, separator: ' ' }
 ): string | undefined => {
-  if (!ms || typeof ms !== "number") return;
-  const pfx = ms < 0 ? "-" : "",
+  if (!ms || typeof ms !== 'number') return;
+  const pfx = ms < 0 ? '-' : '',
     abs = ms < 0 ? -ms : ms;
   if (abs < second)
-    return ms + (long ? `${separator}millisecond${ms != 1 ? "s" : ""}` : "ms");
-  if (abs < minute) return fmt(abs / second, pfx, "second", long, separator);
-  if (abs < hour) return fmt(abs / minute, pfx, "minute", long, separator);
-  if (abs < day) return fmt(abs / hour, pfx, "hour", long, separator);
-  if (abs < month) return fmt(abs / day, pfx, "day", long, separator);
-  if (abs < year) return fmt(abs / month, pfx, "month", long, separator);
-  return fmt(abs / year, pfx, "year", long, separator);
+    return ms + (long ? `${separator}millisecond${ms != 1 ? 's' : ''}` : 'ms');
+  if (abs < minute) return fmt(abs / second, pfx, 'second', long, separator);
+  if (abs < hour) return fmt(abs / minute, pfx, 'minute', long, separator);
+  if (abs < day) return fmt(abs / hour, pfx, 'hour', long, separator);
+  if (abs < month) return fmt(abs / day, pfx, 'day', long, separator);
+  if (abs < year) return fmt(abs / month, pfx, 'month', long, separator);
+  return fmt(abs / year, pfx, 'year', long, separator);
 };
