@@ -16,26 +16,34 @@ Read docs [here](https://duration.js.org/).
 ## Install
 
 ```bash
+# npm
 npm i @imranbarbhuiya/duration
+
+# yarn
+yarn add @imranbarbhuiya/duration
+
 ```
 
 ## Usage
 
 ```js
+// esm or typescript
 import {
   parse,
   format,
   prettyFormat,
   date,
   relativeTime,
-} from '@imranbarbhuiya/duration'; //es6
+} from '@imranbarbhuiya/duration';
+
+// cjs
 const {
   parse,
   format,
   prettyFormat,
   date,
   relativeTime,
-} = require('@imranbarbhuiya/duration'); //es5
+} = require('@imranbarbhuiya/duration');
 ```
 
 ### parse(input)
@@ -75,19 +83,19 @@ format(-3 * 60000, { long: true }); //=> "-3 minutes"
 format(parse('10 hours'), { long: true }); //=> "10 hours"
 ```
 
-### prettyFormat(duration, format)
+### prettyFormat(duration, {format: 'long', patterns: ['year', 'month', 'week', 'day', 'hour', 'minute', 'second']})
 
 ```js
-// number to string (no round up) (short)
+// number to string (no round up) (long)
 prettyFormat(60000); //=> "1 minute"
 prettyFormat(121000); //=> "2 minutes, 1 second"
 prettyFormat(parse('10 hours')); //=> "10 hours"
 prettyFormat(1000 * 60 * 60 * 60 * 24); //=> "24 hours"
 prettyFormat(1000 * 60 * 60 * 60 * 24 * 30); //=> "72 hours"
 
-// number to string (no round up) (long)
-prettyFormat(1000 * 60 * 60 * 60 * 24, 'long'); //=> "1 day"
-prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, 'long'); //=> "1 month"
+// number to string (no round up) (short)
+prettyFormat(1000 * 60 * 60 * 60 * 24, { format: 'long' }); //=> "1 day"
+prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, { format: 'long' }); //=> "1 month"
 ```
 
 ### date(date, format)
