@@ -8,11 +8,21 @@ export const month = day * 30;
 export const year = day * 365;
 export const timeFormats = [
   'year',
+  'y',
   'month',
+  'mo',
   'week',
+  'w',
   'day',
+  'd',
   'hour',
+  'h',
   'minute',
+  'min',
+  'm',
   'second',
+  's',
   'millisecond',
+  'milli',
+  'ms',
 ] as const;

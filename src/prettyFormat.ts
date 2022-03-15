@@ -61,41 +61,51 @@ function getValue(
 ): { value: number | undefined; ms: number } {
   switch (pattern) {
     case 'year':
+    case 'y':
       return {
         value: abs >= year ? Math.floor(abs / year) : undefined,
         ms: year,
       };
     case 'month':
+    case 'mo':
       return {
         value: abs >= month ? Math.floor(abs / month) : undefined,
         ms: month,
       };
     case 'week':
+    case 'w':
       return {
         value: abs >= day * 7 ? Math.floor(abs / day / 7) : undefined,
         ms: day * 7,
       };
     case 'day':
+    case 'd':
       return {
         value: abs >= day ? Math.floor(abs / day) : undefined,
         ms: day,
       };
     case 'hour':
+    case 'h':
       return {
         value: abs >= hour ? Math.floor(abs / hour) : undefined,
         ms: hour,
       };
     case 'minute':
+    case 'min':
+    case 'm':
       return {
         value: abs >= minute ? Math.floor(abs / minute) : undefined,
         ms: minute,
       };
     case 'second':
+    case 's':
       return {
         value: abs >= second ? Math.floor(abs / second) : undefined,
         ms: second,
       };
     case 'millisecond':
+    case 'milli':
+    case 'ms':
       return {
         value: abs >= 1 ? Math.floor(abs) : undefined,
         ms: 1,
