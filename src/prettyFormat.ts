@@ -19,11 +19,9 @@ export const prettyFormat = (
   ms: number,
   {
     patterns = timeFormats,
-    keepDecimal = false,
     format = 'long',
   }: {
     patterns?: readonly typeof timeFormats[number][];
-    keepDecimal?: boolean;
     format?: 'long' | 'short';
   } = {}
 ): string | undefined => {
