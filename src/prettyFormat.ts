@@ -30,7 +30,7 @@ export const prettyFormat = (
   if (!ms || typeof ms !== 'number') return;
 
   const sign = ms < 0 ? '-' : '';
-  if (!keepDecimal) ms = Math.floor(Math.abs(ms));
+  // if (!keepDecimal) ms = Math.floor(Math.abs(ms));
   let abs = Math.abs(ms);
 
   const results = patterns.reduce((acc, p) => {

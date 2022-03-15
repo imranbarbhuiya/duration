@@ -53,3 +53,14 @@ describe('Adding format', () => {
     ).toBe('24h, 6s');
   });
 });
+
+describe('Keep Decimal', () => {
+  test.skip('GIVEN number THEN return number', () => {
+    expect(duration.prettyFormat(1500, { keepDecimal: true })).toBe(
+      '1.5 seconds'
+    );
+    expect(duration.prettyFormat(1000.1, { keepDecimal: true })).toBe(
+      '1.0001 seconds'
+    );
+  });
+});
