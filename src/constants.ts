@@ -5,4 +5,14 @@ export const minute = second * 60;
 export const hour = minute * 60;
 export const day = hour * 24;
 export const month = day * 30;
-export const year = day * 365.25;
+export const year = day * 365;
+export const timeFormats = [
+  'year',
+  'month',
+  'week',
+  'day',
+  'hour',
+  'minute',
+  'second',
+  'millisecond',
+] as const;

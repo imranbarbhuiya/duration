@@ -27,6 +27,7 @@
     "no-unused-vars": "off",
     "node/no-missing-require": "off",
     "no-console": "error",
-    "@typescript-eslint/consistent-type-imports": "error"
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-shadow": "warn"
   }
 }
