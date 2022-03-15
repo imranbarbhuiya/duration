@@ -3,8 +3,9 @@
 .yarn
 coverage
 src
-test
+tests
 .eslintignore
 .eslintrc
+jest.config.mjs
 tsconfig.json
-coverage
+

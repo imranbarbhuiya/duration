@@ -1,4 +1,4 @@
-const duration = require('../index');
+import duration from '../src/index';
 
 test('should return ms from a string', () => {
   expect(duration.parse('1ms')).toBe(1);

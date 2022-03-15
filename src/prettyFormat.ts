@@ -37,14 +37,14 @@ export const prettyFormat = (
     const result = getValue(p, abs);
     if (result.value) {
       acc.push(
-        `${result.value} ${
+        `${result.value}${
           format === 'short'
             ? p === 'month'
               ? 'mo'
               : p[0]
             : result.value === 1
-            ? p
-            : `${p}s`
+            ? ` ${p}`
+            : ` ${p}s`
         }`
       );
       abs -= result.value * result.ms;

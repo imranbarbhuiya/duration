@@ -5,16 +5,16 @@ const padLeftZero = (str: number) => {
 /**
  * Format a date as a string.
  *
- * @param date the date to format
+ * @param input the date to format
  * @param format the format to use
  * @returns the formatted date
  */
 export const date = (
-  date: Date | number | string,
+  input: Date | number | string,
   format = 'yyyy-MM-dd HH:mm:ss',
   locale = 'en-US'
 ): string => {
-  const dateObj = date instanceof Date ? date : new Date(date);
+  const dateObj = input instanceof Date ? input : new Date(input);
   dateObj.toLocaleDateString();
   const year = dateObj.getFullYear();
   const month = dateObj.getMonth() + 1;
