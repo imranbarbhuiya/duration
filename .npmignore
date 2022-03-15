@@ -1,7 +1,10 @@
+
+.github
+.yarn
+coverage
 src
+test
+.eslintignore
 .eslintrc
 tsconfig.json
-.github
-test
 coverage
-.eslintignore
