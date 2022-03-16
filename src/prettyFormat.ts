@@ -35,11 +35,11 @@ export const prettyFormat = (
       acc.push(
         `${result.value}${
           format === 'short'
-            ? p === 'month'
+            ? result.unit === 'month'
               ? 'mo'
-              : ['ms', 'milli', 'millisecond'].includes(p)
+              : result.unit === 'millisecond'
               ? 'ms'
-              : p[0]
+              : result.unit[0]
             : result.value === 1
             ? ` ${p}`
             : ` ${p}s`
@@ -58,37 +58,42 @@ export const prettyFormat = (
 function getValue(
   pattern: typeof timeFormats[number],
   abs: number
-): { value: number | undefined; ms: number } {
+): { value: number | undefined; ms: number; unit: string } {
   switch (pattern) {
     case 'year':
     case 'y':
       return {
         value: abs >= year ? Math.floor(abs / year) : undefined,
         ms: year,
+        unit: 'year',
       };
     case 'month':
     case 'mo':
       return {
         value: abs >= month ? Math.floor(abs / month) : undefined,
         ms: month,
+        unit: 'month',
       };
     case 'week':
     case 'w':
       return {
         value: abs >= day * 7 ? Math.floor(abs / day / 7) : undefined,
         ms: day * 7,
+        unit: 'week',
       };
     case 'day':
     case 'd':
       return {
         value: abs >= day ? Math.floor(abs / day) : undefined,
         ms: day,
+        unit: 'day',
       };
     case 'hour':
     case 'h':
       return {
         value: abs >= hour ? Math.floor(abs / hour) : undefined,
         ms: hour,
+        unit: 'hour',
       };
     case 'minute':
     case 'min':
@@ -96,12 +101,14 @@ function getValue(
       return {
         value: abs >= minute ? Math.floor(abs / minute) : undefined,
         ms: minute,
+        unit: 'minute',
       };
     case 'second':
     case 's':
       return {
         value: abs >= second ? Math.floor(abs / second) : undefined,
         ms: second,
+        unit: 'second',
       };
     case 'millisecond':
     case 'milli':
@@ -109,11 +116,13 @@ function getValue(
       return {
         value: abs >= 1 ? Math.floor(abs) : undefined,
         ms: 1,
+        unit: 'millisecond',
       };
     default:
       return {
         value: undefined,
         ms: 0,
+        unit: '',
       };
   }
 }
