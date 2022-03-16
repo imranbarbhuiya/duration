@@ -38,6 +38,8 @@ export const prettyFormat = (
           format === 'short'
             ? p === 'month'
               ? 'mo'
+              : ['ms', 'milli', 'millisecond'].includes(p)
+              ? 'ms'
               : p[0]
             : result.value === 1
             ? ` ${p}`
