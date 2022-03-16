@@ -17,7 +17,6 @@ export const date = (
   locale = 'en-US'
 ): string => {
   const dateObj = input instanceof Date ? input : new Date(input);
-  dateObj.toLocaleDateString();
   const year = dateObj.getFullYear();
   const month = dateObj.getMonth() + 1;
   const day = dateObj.getDate();
