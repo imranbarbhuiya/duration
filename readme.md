@@ -84,7 +84,7 @@ prettyFormat(86406010, {
   format: 'short',
   patterns: ['hour', 'minute', 'second', 'millisecond'],
   separator: ' ',
-}); //=> '24h 6s 10ms'
+}); //=> 24h 6s 10ms
 ```
 
 Writing these patterns every time is a pain. That's why there is a Formatter class which can be used to format multiple times without repeating yourself.
@@ -98,8 +98,8 @@ const formatter = new Formatter({
   separator: ' ',
 });
 
-formatter.format(1000 * 60 * 60 * 24 * 30); //=> 1mo
-formatter.format(86406010); //=> '24h 6s 10ms'
+formatter.format(1000 * 60 * 60 * 24 * 30); //=> 720h
+formatter.format(86406010); //=> 24h 6s 10ms
 ```
 
 ### date
