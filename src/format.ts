@@ -38,8 +38,8 @@ export const format = (
   } = {}
 ): string | undefined => {
   if (!ms || typeof ms !== 'number') return;
-  const pfx = ms < 0 ? '-' : '',
-    abs = ms < 0 ? -ms : ms;
+  const pfx = ms < 0 ? '-' : '';
+  const abs = Math.abs(ms);
   if (abs < second)
     return ms + (long ? `${separator}millisecond${ms != 1 ? 's' : ''}` : 'ms');
   if (abs < minute) return fmt(abs / second, pfx, 'second', long, separator);
