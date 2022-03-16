@@ -10,7 +10,7 @@ export default defineConfig({
   sourcemap: true,
   target: 'es2021',
   keepNames: true,
-  globalName: 'Duration',
+  globalName: 'duration',
   tsconfig: 'src/tsconfig.json',
   esbuildOptions: (options, context) => {
     if (context.format === 'cjs') {
