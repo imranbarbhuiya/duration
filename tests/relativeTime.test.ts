@@ -77,4 +77,23 @@ describe('Relative Time', () => {
       )
     ).toBe('in 22 years');
   });
+
+  test('GIVEN from THEN show relative time from that time', () => {
+    const now = Date.now();
+    expect(
+      duration.relativeTime(new Date(now + 1000), new Date(now - 1000))
+    ).toBe('in 2 seconds');
+    expect(
+      duration.relativeTime(
+        new Date(now + 1000 * 60),
+        new Date(now - 1000 * 60)
+      )
+    ).toBe('in 2 minutes');
+    expect(
+      duration.relativeTime(
+        new Date(now + 1000 * 60 * 60),
+        new Date(now - 1000 * 60 * 60)
+      )
+    ).toBe('in 2 hours');
+  });
 });

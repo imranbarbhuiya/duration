@@ -11,7 +11,6 @@ const config = {
       tsconfig: '<rootDir>/tests/tsconfig.json',
     },
   },
-  collectCoverage: true,
 };
 
 export default config;
