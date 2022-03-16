@@ -5,14 +5,15 @@ const fmt = (
   pfx: string,
   str: string,
   long: boolean,
-  separator: string
+  separator: string,
+  decimal: number
 ): string => {
-  const num = (val | 0) === val ? val : ~~(val + 0.5);
+  const num = val.toFixed(decimal);
   return (
     pfx +
     num +
     (long
-      ? separator + str + (num != 1 ? 's' : '')
+      ? separator + str + (parseFloat(num) != 1 ? 's' : '')
       : str == 'month'
       ? str.slice(0, 2)
       : str[0])
@@ -32,9 +33,11 @@ export const format = (
   {
     long = false,
     separator = ' ',
+    decimal = 0,
   }: {
     long?: boolean;
     separator?: string;
+    decimal?: number;
   } = {}
 ): string | undefined => {
   if (!ms || typeof ms !== 'number') return;
@@ -42,10 +45,13 @@ export const format = (
   const abs = Math.abs(ms);
   if (abs < second)
     return ms + (long ? `${separator}millisecond${ms != 1 ? 's' : ''}` : 'ms');
-  if (abs < minute) return fmt(abs / second, pfx, 'second', long, separator);
-  if (abs < hour) return fmt(abs / minute, pfx, 'minute', long, separator);
-  if (abs < day) return fmt(abs / hour, pfx, 'hour', long, separator);
-  if (abs < month) return fmt(abs / day, pfx, 'day', long, separator);
-  if (abs < year) return fmt(abs / month, pfx, 'month', long, separator);
-  return fmt(abs / year, pfx, 'year', long, separator);
+  if (abs < minute)
+    return fmt(abs / second, pfx, 'second', long, separator, decimal);
+  if (abs < hour)
+    return fmt(abs / minute, pfx, 'minute', long, separator, decimal);
+  if (abs < day) return fmt(abs / hour, pfx, 'hour', long, separator, decimal);
+  if (abs < month) return fmt(abs / day, pfx, 'day', long, separator, decimal);
+  if (abs < year)
+    return fmt(abs / month, pfx, 'month', long, separator, decimal);
+  return fmt(abs / year, pfx, 'year', long, separator, decimal);
 };
