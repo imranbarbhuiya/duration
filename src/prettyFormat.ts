@@ -6,6 +6,7 @@ import {
   minute,
   second,
   timeFormats,
+  type formatterOptions,
 } from './constants';
 
 /**
@@ -20,11 +21,7 @@ export const prettyFormat = (
     patterns = timeFormats,
     format = 'long',
     separator = ', ',
-  }: {
-    patterns?: readonly typeof timeFormats[number][];
-    format?: 'long' | 'short';
-    separator?: string;
-  } = {}
+  }: formatterOptions = {}
 ): string | undefined => {
   if (!ms || typeof ms !== 'number') return;
 
@@ -118,5 +115,43 @@ function getValue(
         value: undefined,
         ms: 0,
       };
+  }
+}
+
+export class Formatter {
+  public patterns: readonly typeof timeFormats[number][];
+  public unitFormat: 'long' | 'short';
+  public separator: string;
+  constructor({
+    patterns = timeFormats,
+    format = 'long',
+    separator = ', ',
+  }: formatterOptions = {}) {
+    this.patterns = patterns;
+    this.unitFormat = format;
+    this.separator = separator;
+  }
+
+  public setFormat(format: 'long' | 'short') {
+    this.unitFormat = format;
+    return this;
+  }
+
+  public setSeparator(separator: string) {
+    this.separator = separator;
+    return this;
+  }
+
+  public setPatterns(patterns: readonly typeof timeFormats[number][]) {
+    this.patterns = patterns;
+    return this;
+  }
+
+  public format(ms: number): string | undefined {
+    return prettyFormat(ms, {
+      patterns: this.patterns,
+      format: this.unitFormat,
+      separator: this.separator,
+    });
   }
 }
