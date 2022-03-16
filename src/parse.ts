@@ -17,7 +17,6 @@ import {
 export const parse = (input: string): number | undefined => {
   if (!input || typeof input !== 'string') return;
   let result = 0;
-  input = input.toLowerCase();
   const matches = input.matchAll(parseRegex);
   const arrMatches = [...matches];
   if (!arrMatches.length) return;

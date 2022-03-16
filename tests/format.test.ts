@@ -85,8 +85,8 @@ describe('Format', () => {
     });
 
     test('GIVEN decimal: 2 THEN return decimal output', () => {
-      expect(format(1200, { decimal: 2 })).toBe('1.20s');
-      expect(format(66000, { decimal: 2 })).toBe('1.10m');
+      expect(format(1200, { decimal: 2 })).toBe('1.2s');
+      expect(format(66500, { decimal: 2 })).toBe('1.11m');
     });
 
     test('GIVEN decimal with long: true THEN return decimal output with long units', () => {
