@@ -33,9 +33,9 @@ export const format = (
     long = false,
     separator = ' ',
   }: {
-    long: boolean;
+    long?: boolean;
     separator?: string;
-  } = { long: false, separator: ' ' }
+  } = {}
 ): string | undefined => {
   if (!ms || typeof ms !== 'number') return;
   const pfx = ms < 0 ? '-' : '',

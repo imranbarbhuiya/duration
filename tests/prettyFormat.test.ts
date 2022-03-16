@@ -40,6 +40,13 @@ describe('Adding patterns', () => {
 describe('Adding format', () => {
   test('GIVEN short format THEN return valid values in short unit', () => {
     expect(
+      duration.prettyFormat(1000 * 60 * 60 * 24 * 30, {
+        format: 'short',
+        patterns: ['year', 'month', 'day'],
+      })
+    ).toBe('1mo');
+
+    expect(
       duration.prettyFormat(86406000, {
         format: 'short',
       })
