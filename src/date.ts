@@ -1,7 +1,7 @@
 import { dateFormateRegex, type dateFormats, months } from './constants';
 
 const padLeftZero = (num: number) => {
-  return Math.abs(num) < 10 ? `0${num}` : `${num}`;
+  return num.toString().padStart(2, '0');
 };
 
 /**
