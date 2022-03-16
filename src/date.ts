@@ -27,7 +27,7 @@ export const date = (
     weekday: 'long',
   });
 
-  format = format.replace(dateFormateRegex, (match) => {
+  const formattedText = format.replace(dateFormateRegex, (match) => {
     switch (match as dateFormats) {
       case 'yyyy':
         return year.toString();
@@ -44,7 +44,7 @@ export const date = (
         return padLeftZero(day);
       case 'HH':
       case 'hh':
-        return padLeftZero(hour);
+        return padLeftZero(/a/i.test(format) ? hour % 12 : hour);
       case 'mm':
         return padLeftZero(minute);
       case 'ss':
@@ -70,5 +70,5 @@ export const date = (
     }
   });
 
-  return format;
+  return formattedText;
 };

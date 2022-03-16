@@ -34,11 +34,14 @@ describe('Date', () => {
     expect(date('2022-01-01T00:00:00.000Z', 'HH:mm:ss.SS A')).toBe(
       '00:00:00.00 AM'
     );
+    expect(date('2022-01-01T13:00:00.000Z', 'HH:mm:ss.SS')).toBe(
+      '13:00:00.00 PM'
+    );
     expect(date('2022-01-01T13:00:00.000Z', 'HH:mm:ss.SS A')).toBe(
-      '00:00:00.00 AM'
+      '01:00:00.00 PM'
     );
     expect(date('2022-01-01T00:00:00.000Z', 'HH:mm:ss.SS a')).toBe(
-      '00:00:00.00 am'
+      '01:00:00.00 pm'
     );
     expect(date('2022-01-01T13:00:00.000Z', 'HH:mm:ss.SS a')).toBe(
       '00:00:00.00 am'
