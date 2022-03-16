@@ -19,9 +19,11 @@ export const prettyFormat = (
   {
     patterns = timeFormats,
     format = 'long',
+    separator = ', ',
   }: {
     patterns?: readonly typeof timeFormats[number][];
     format?: 'long' | 'short';
+    separator?: string;
   } = {}
 ): string | undefined => {
   if (!ms || typeof ms !== 'number') return;
@@ -53,7 +55,7 @@ export const prettyFormat = (
 
   if (results.length === 0) return;
 
-  return `${sign}${results.join(', ')}`;
+  return `${sign}${results.join(separator)}`;
 };
 
 function getValue(
@@ -118,4 +120,3 @@ function getValue(
       };
   }
 }
-

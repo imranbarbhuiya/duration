@@ -71,4 +71,31 @@ describe('PrettyFormat', () => {
       ).toBe('24h, 6s, 10ms');
     });
   });
+
+  describe('Adding custom separator', () => {
+    test('GIVEN short format with ` ` separator THEN return valid values in short unit with the given separator', () => {
+      expect(
+        prettyFormat(86406000, {
+          format: 'short',
+          separator: ' ',
+        })
+      ).toBe('1d 6s');
+
+      expect(
+        prettyFormat(86406000, {
+          format: 'long',
+          patterns: ['hour', 'minute', 'second', 'millisecond'],
+          separator: ' ',
+        })
+      ).toBe('24 hours 6 seconds');
+
+      expect(
+        prettyFormat(86406010, {
+          format: 'short',
+          patterns: ['hour', 'minute', 'second', 'millisecond'],
+          separator: ',',
+        })
+      ).toBe('24h,6s,10ms');
+    });
+  });
 });

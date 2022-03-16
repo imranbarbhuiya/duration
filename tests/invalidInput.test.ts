@@ -36,5 +36,10 @@ describe('Invalid Inputs', () => {
     expect(prettyFormat('abc')).toBe(undefined);
     expect(prettyFormat(true)).toBe(undefined);
     expect(prettyFormat(false)).toBe(undefined);
+    expect(
+      prettyFormat(1000, {
+        patterns: [],
+      })
+    ).toBe(undefined);
   });
 });
