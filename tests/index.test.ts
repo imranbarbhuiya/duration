@@ -1,34 +1,34 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck testing null values
 
-import duration from '../src/index';
+import { parse, format, prettyFormat } from '../src/index';
 
 test('should return undefined for invalid inputs', () => {
   // parse
-  expect(duration.parse(NaN)).toBe(undefined);
-  expect(duration.parse(null)).toBe(undefined);
-  expect(duration.parse(undefined)).toBe(undefined);
-  expect(duration.parse('')).toBe(undefined);
-  expect(duration.parse('abc')).toBe(undefined);
-  expect(duration.parse(true)).toBe(undefined);
-  expect(duration.parse(false)).toBe(undefined);
-  expect(duration.parse(10)).toBe(undefined);
+  expect(parse(NaN)).toBe(undefined);
+  expect(parse(null)).toBe(undefined);
+  expect(parse(undefined)).toBe(undefined);
+  expect(parse('')).toBe(undefined);
+  expect(parse('abc')).toBe(undefined);
+  expect(parse(true)).toBe(undefined);
+  expect(parse(false)).toBe(undefined);
+  expect(parse(10)).toBe(undefined);
 
   // format
-  expect(duration.format(NaN)).toBe(undefined);
-  expect(duration.format(null)).toBe(undefined);
-  expect(duration.format(undefined)).toBe(undefined);
-  expect(duration.format('')).toBe(undefined);
-  expect(duration.format('abc')).toBe(undefined);
-  expect(duration.format(true)).toBe(undefined);
-  expect(duration.format(false)).toBe(undefined);
+  expect(format(NaN)).toBe(undefined);
+  expect(format(null)).toBe(undefined);
+  expect(format(undefined)).toBe(undefined);
+  expect(format('')).toBe(undefined);
+  expect(format('abc')).toBe(undefined);
+  expect(format(true)).toBe(undefined);
+  expect(format(false)).toBe(undefined);
 
   // prettyFormat
-  expect(duration.prettyFormat(NaN)).toBe(undefined);
-  expect(duration.prettyFormat(null)).toBe(undefined);
-  expect(duration.prettyFormat(undefined)).toBe(undefined);
-  expect(duration.prettyFormat('')).toBe(undefined);
-  expect(duration.prettyFormat('abc')).toBe(undefined);
-  expect(duration.prettyFormat(true)).toBe(undefined);
-  expect(duration.prettyFormat(false)).toBe(undefined);
+  expect(prettyFormat(NaN)).toBe(undefined);
+  expect(prettyFormat(null)).toBe(undefined);
+  expect(prettyFormat(undefined)).toBe(undefined);
+  expect(prettyFormat('')).toBe(undefined);
+  expect(prettyFormat('abc')).toBe(undefined);
+  expect(prettyFormat(true)).toBe(undefined);
+  expect(prettyFormat(false)).toBe(undefined);
 });
