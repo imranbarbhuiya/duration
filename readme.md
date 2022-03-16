@@ -37,6 +37,7 @@ import {
   prettyFormat,
   date,
   relativeTime,
+  Formatter,
 } from '@imranbarbhuiya/duration';
 ```
 
@@ -49,6 +50,7 @@ const {
   prettyFormat,
   date,
   relativeTime,
+  Formatter,
 } = require('@imranbarbhuiya/duration');
 ```
 
@@ -66,27 +68,47 @@ parse('-3 days'); //=> -259200000
 
 ```js
 // number => string
-format(2 * 60000); //=> "2m"
-format(-3 * 60000, { long: true }); //=> "-3 minutes"
-format(parse('10 hours'), { long: true }); //=> "10 hours"
+format(2 * 60000); //=> 2m
+format(-3 * 60000, { long: true }); //=> -3 minutes
+format(parse('10 hours'), { long: true }); //=> 10 hours
 ```
 
 ### prettyFormat
 
 ```js
 // number to string (multiple units)
-prettyFormat(60000); //=> "1 minute"
-prettyFormat(121000); //=> "2 minutes, 1 second"
-prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, { format: 'long' }); //=> "1 month"
+prettyFormat(60000); //=> 1 minute
+prettyFormat(121000); //=> 2 minutes, 1 second
+prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, { format: 'short' }); //=> 1mo
+prettyFormat(86406010, {
+  format: 'short',
+  patterns: ['hour', 'minute', 'second', 'millisecond'],
+  separator: ' ',
+}); //=> '24h 6s 10ms'
+```
+
+Writing these patterns every time is a pain. That's why there is a Formatter class which can be used to format multiple times without repeating yourself.
+
+### Formatter
+
+```js
+const formatter = new Formatter({
+  format: 'short',
+  patterns: ['hour', 'minute', 'second', 'millisecond'],
+  separator: ' ',
+});
+
+formatter.format(1000 * 60 * 60 * 24 * 30); //=> 1mo
+formatter.format(86406010); //=> '24h 6s 10ms'
 ```
 
 ### date
 
 ```js
 // format a date
-date('2022-01-01', 'YYYY-MMM-Do'); //=> "2022-Jan-Saturday"
-date('2022-01-01T00:00:00.000Z', 'yyyy-MM-D HH:mm:ss.SS Z'); //=> "2022-01-1 00:00:00.00 0"
-date('2022-01-01T00:00:00.000Z', 'yyyy-MMMM-DDD HH:mm:ss.SS'); //=> "2022-January-Sat 00:00:00.00"
+date('2022-01-01', 'YYYY-MMM-Do'); //=> 2022-Jan-Saturday
+date('2022-01-01T00:00:00.000Z', 'yyyy-MM-D HH:mm:ss.SS Z'); //=> 2022-01-1 00:00:00.00 0
+date('2022-01-01T00:00:00.000Z', 'yyyy-MMMM-DDD HH:mm:ss.SS'); //=> 2022-January-Sat 00:00:00.00
 ```
 
 ### relativeTime

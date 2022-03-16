@@ -64,3 +64,9 @@ export type dateFormats =
   | 'a'
   | 'X'
   | 'x';
+
+export interface formatterOptions {
+  patterns?: readonly typeof timeFormats[number][];
+  format?: 'long' | 'short';
+  separator?: string;
+}
