@@ -28,3 +28,39 @@ export const timeFormats = [
   'milli',
   'ms',
 ] as const;
+export const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+] as const;
+
+export type dateFormats =
+  | 'yyyy'
+  | 'yy'
+  | 'MMMM'
+  | 'MMM'
+  | 'MM'
+  | 'dd'
+  | 'HH'
+  | 'hh'
+  | 'mm'
+  | 'ss'
+  | 'SS'
+  | 'Do'
+  | 'DDD'
+  | 'DD'
+  | 'D'
+  | 'Z'
+  | 'A'
+  | 'a'
+  | 'X'
+  | 'x';

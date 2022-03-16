@@ -1,4 +1,4 @@
-import { dateFormateRegex } from './constants';
+import { dateFormateRegex, type dateFormats, months } from './constants';
 
 const padLeftZero = (str: number) => {
   return `0${str}`.slice(-2);
@@ -23,27 +23,12 @@ export const date = (
   const hour = dateObj.getHours();
   const minute = dateObj.getMinutes();
 
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ] as const;
-
   const dayOfWeekStr = dateObj.toLocaleDateString(locale, {
     weekday: 'long',
   });
 
   format = format.replace(dateFormateRegex, (match) => {
-    switch (match) {
+    switch (match as dateFormats) {
       case 'yyyy':
         return year.toString();
       case 'yy':
@@ -82,8 +67,6 @@ export const date = (
         return (dateObj.getTime() / 1000).toString();
       case 'x':
         return dateObj.getTime().toString();
-      default:
-        return match;
     }
   });
 
