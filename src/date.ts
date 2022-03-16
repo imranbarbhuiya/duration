@@ -1,3 +1,5 @@
+import { dateFormateRegex } from './constants';
+
 const padLeftZero = (str: number) => {
   return `0${str}`.slice(-2);
 };
@@ -35,15 +37,13 @@ export const date = (
     'October',
     'November',
     'December',
-  ];
+  ] as const;
 
   const dayOfWeekStr = dateObj.toLocaleDateString(locale, {
     weekday: 'long',
   });
 
-  const regex = /yyyy|yy|MMMM|MMM|MM|dd|HH|hh|mm|ss|SS|Do|DDD|DD|D|Z|A|a|X|x/g;
-
-  format = format.replace(regex, (match) => {
+  format = format.replace(dateFormateRegex, (match) => {
     switch (match) {
       case 'yyyy':
         return year.toString();
