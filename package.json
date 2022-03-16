@@ -1,7 +1,7 @@
 {
   "name": "@imranbarbhuiya/duration",
   "version": "4.4.1",
-  "description": "A small and fast utility to convert milliseconds to human-readable string or vice versa.",
+  "description": "A small and fast time utility which makes working with time, duration, date super easy. It contains a number of useful small utility methods to work with time and date.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "browser": "dist/index.global.js",
