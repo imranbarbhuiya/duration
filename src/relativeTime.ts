@@ -9,9 +9,10 @@ import { second, minute, hour, day, year, month } from './constants';
  */
 export const relativeTime = (
   time: number | Date | string,
-  from = new Date()
+  from: number | Date | string = new Date()
 ) => {
   const givenDate = time instanceof Date ? time : new Date(time);
+  from = from instanceof Date ? from : new Date(from);
 
   let diff = from.getTime() - givenDate.getTime();
   if (diff > 0) {
