@@ -41,8 +41,8 @@ export const prettyFormat = (
               ? 'ms'
               : result.unit[0]
             : result.value === 1
-            ? ` ${p}`
-            : ` ${p}s`
+            ? ` ${result.unit}`
+            : ` ${result.unit}s`
         }`
       );
       abs -= result.value * result.ms;
