@@ -21,7 +21,7 @@ describe('Date', () => {
       '2022-01-01 00:00:00.00'
     );
     expect(date('2022-01-01T00:00:00.000Z', 'yyyy-MM-D HH:mm:ss.SS Z')).toBe(
-      '2022-01-1 00:00:00.00 0'
+      '2022-01-1 00:00:05.30 0'
     );
     expect(date('2022-01-01T00:00:00.000Z', 'yyyy-MM-dd HH:mm:ss.SS Z')).toBe(
       date(1640995200000, 'yyyy-MM-dd HH:mm:ss.SS Z')
@@ -34,7 +34,13 @@ describe('Date', () => {
     expect(date('2022-01-01T00:00:00.000Z', 'HH:mm:ss.SS A')).toBe(
       '00:00:00.00 AM'
     );
+    expect(date('2022-01-01T13:00:00.000Z', 'HH:mm:ss.SS A')).toBe(
+      '00:00:00.00 AM'
+    );
     expect(date('2022-01-01T00:00:00.000Z', 'HH:mm:ss.SS a')).toBe(
+      '00:00:00.00 am'
+    );
+    expect(date('2022-01-01T13:00:00.000Z', 'HH:mm:ss.SS a')).toBe(
       '00:00:00.00 am'
     );
     expect(date('2022-01-01T00:00:00.000Z', 'X')).toBe('1640995200');
