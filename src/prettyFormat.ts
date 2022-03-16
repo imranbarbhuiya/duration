@@ -119,6 +119,3 @@ function getValue(
   }
 }
 
-prettyFormat(1000, {
-  patterns: ['day', 'day'],
-});
