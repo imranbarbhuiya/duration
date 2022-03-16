@@ -14,9 +14,8 @@
     "moduleResolution": "node",
     "lib": ["es2021"],
     "declaration": true,
-    "sourceMap": true,
+    "emitDeclarationOnly": true,
     "outDir": "dist"
   },
-  "includes": ["src/**/*.ts"],
-  "exclude": ["tests", "node_modules", "dist"]
+  "includes": ["src/**/*.ts"]
 }

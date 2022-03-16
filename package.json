@@ -2,33 +2,29 @@
   "name": "@imranbarbhuiya/duration",
   "version": "4.4.1",
   "description": "A small and fast utility to convert milliseconds to human-readable string or vice versa.",
-  "main": "index.js",
-  "exports": {
-    ".": [
-      {
-        "require": "./index.js",
-        "import": "./dist/index.js"
-      },
-      "./index.js"
-    ],
-    "./*": "./",
-    "./esm": "./dist/index.js"
-  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.global.js",
+  "unpkg": "dist/index.global.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
   "license": "MIT",
   "author": "imranbarbhuiya",
   "engines": {
     "node": ">=8"
   },
   "scripts": {
-    "docs": "npx typedoc src/index.ts --name duration",
-    "build": "tsc -p tsconfig.json",
+    "docs": "typedoc src/index.ts --name duration",
+    "build": "tsup && tsc -b src",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "pretest": "yarn build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "rollup-type-bundler"
   },
   "keywords": [
     "ms",
@@ -42,6 +38,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@favware/rollup-type-bundler": "^1.0.7",
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
@@ -49,8 +46,14 @@
     "jest": "^27.5.1",
     "jest-circus": "^27.5.1",
     "ts-jest": "^27.1.3",
+    "tsup": "^5.12.1",
+    "typedoc": "^0.22.13",
     "typescript": "^4.6.2"
   },
+  "files": [
+    "dist",
+    "!dist/*.tsbuildinfo"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imranbarbhuiya/duration.git"
