@@ -1,10 +1,3 @@
-/**
- *
- * @param ms the duration in milliseconds
- * @param format long: show all days, moth, year, short: only the hour, minute and second
- * @returns the duration in human readable form
- */
-
 import {
   year,
   month,
@@ -15,6 +8,12 @@ import {
   timeFormats,
 } from './constants';
 
+/**
+ *
+ * @param ms the duration in milliseconds
+ * @param options other format options
+ * @returns the duration in human readable form
+ */
 export const prettyFormat = (
   ms: number,
   {

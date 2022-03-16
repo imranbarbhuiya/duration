@@ -4,14 +4,16 @@ import { second, minute, hour, day, year, month } from './constants';
  * Format a date as relative time.
  *
  * @param time the time to format
- * @returns
+ * @param from the relative time from this time
+ * @returns the formatted relative time
  */
-
-export const relativeTime = (time: number | Date | string) => {
+export const relativeTime = (
+  time: number | Date | string,
+  from = new Date()
+) => {
   const givenDate = time instanceof Date ? time : new Date(time);
-  const now = new Date();
 
-  let diff = now.getTime() - givenDate.getTime();
+  let diff = from.getTime() - givenDate.getTime();
   if (diff > 0) {
     if (diff < second * 2) {
       return 'just now';
