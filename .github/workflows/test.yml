@@ -10,24 +10,25 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install node.js v16
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: "yarn"
+          node-version: 16
+          cache: 'yarn'
           cache-dependency-path: yarn.lock
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
+
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Test
+        run: yarn test --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2

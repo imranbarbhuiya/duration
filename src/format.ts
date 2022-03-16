@@ -1,19 +1,21 @@
-import { day, hour, minute, month, second, year } from "./constants";
+import { day, hour, minute, month, second, year } from './constants';
 
 const fmt = (
   val: number,
   pfx: string,
   str: string,
   long: boolean,
-  separator: string
+  separator: string,
+  decimal: number
 ): string => {
-  const num = (val | 0) === val ? val : ~~(val + 0.5);
+  const base = Math.pow(10, decimal);
+  const num = Math.round(val * base) / base;
   return (
     pfx +
     num +
     (long
-      ? separator + str + (num != 1 ? "s" : "")
-      : str == "month"
+      ? separator + str + (parseFloat(`${num}`) != 1 ? 's' : '')
+      : str == 'month'
       ? str.slice(0, 2)
       : str[0])
   );
@@ -31,21 +33,26 @@ export const format = (
   ms: number,
   {
     long = false,
-    separator = " ",
+    separator = ' ',
+    decimal = 0,
   }: {
-    long: boolean;
+    long?: boolean;
     separator?: string;
-  } = { long: false, separator: " " }
+    decimal?: number;
+  } = {}
 ): string | undefined => {
-  if (!ms || typeof ms !== "number") return;
-  const pfx = ms < 0 ? "-" : "",
-    abs = ms < 0 ? -ms : ms;
+  if (!ms || typeof ms !== 'number') return;
+  const pfx = ms < 0 ? '-' : '';
+  const abs = Math.abs(ms);
   if (abs < second)
-    return ms + (long ? `${separator}millisecond${ms != 1 ? "s" : ""}` : "ms");
-  if (abs < minute) return fmt(abs / second, pfx, "second", long, separator);
-  if (abs < hour) return fmt(abs / minute, pfx, "minute", long, separator);
-  if (abs < day) return fmt(abs / hour, pfx, "hour", long, separator);
-  if (abs < month) return fmt(abs / day, pfx, "day", long, separator);
-  if (abs < year) return fmt(abs / month, pfx, "month", long, separator);
-  return fmt(abs / year, pfx, "year", long, separator);
+    return ms + (long ? `${separator}millisecond${ms != 1 ? 's' : ''}` : 'ms');
+  if (abs < minute)
+    return fmt(abs / second, pfx, 'second', long, separator, decimal);
+  if (abs < hour)
+    return fmt(abs / minute, pfx, 'minute', long, separator, decimal);
+  if (abs < day) return fmt(abs / hour, pfx, 'hour', long, separator, decimal);
+  if (abs < month) return fmt(abs / day, pfx, 'day', long, separator, decimal);
+  if (abs < year)
+    return fmt(abs / month, pfx, 'month', long, separator, decimal);
+  return fmt(abs / year, pfx, 'year', long, separator, decimal);
 };

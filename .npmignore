@@ -1,7 +1,0 @@
-src
-.eslintrc
-tsconfig.json
-.github
-test
-coverage
-.eslintignore
