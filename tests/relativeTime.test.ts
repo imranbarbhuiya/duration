@@ -1,5 +1,7 @@
 import duration from '../src/index';
 
+// from is added to all tests just to make sure that the tests don't fail due to few seconds lag
+
 describe('Relative Time', () => {
   test('GIVEN negative time THEN show relative time in past', () => {
     const now = Date.now();
@@ -32,7 +34,7 @@ describe('Relative Time', () => {
       duration.relativeTime(new Date(now - 1000 * 60 * 60 * 24 * 7 * 4), now)
     ).toBe('4 weeks ago');
     expect(
-      duration.relativeTime(new Date(now - 1000 * 60 * 60 * 24 * 33), now)
+      duration.relativeTime(new Date(now - 1000 * 60 * 60 * 24 * 33))
     ).toBe('a month ago');
     expect(
       duration.relativeTime(new Date(now - 1000 * 60 * 60 * 24 * 30 * 3), now)
@@ -85,7 +87,7 @@ describe('Relative Time', () => {
     ).toBe('in 4 weeks');
 
     expect(
-      duration.relativeTime(new Date(now + 1000 * 60 * 60 * 24 * 32), now)
+      duration.relativeTime(new Date(now + 1000 * 60 * 60 * 24 * 32))
     ).toBe('in a month');
     expect(
       duration.relativeTime(new Date(now + 1000 * 60 * 60 * 24 * 30 * 11), now)
