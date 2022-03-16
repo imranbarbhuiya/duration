@@ -19,7 +19,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "docs": "typedoc src/index.ts --name duration",
+    "docs": "typedoc",
     "build": "tsup && tsc -b src",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

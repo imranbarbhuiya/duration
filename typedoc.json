@@ -1,0 +1,7 @@
+{
+  "out": "./docs/",
+  "readme": "./README.md",
+  "name": "duration",
+  "entryPoints": ["src/index.ts"],
+  "tsconfig": "./src/tsconfig.json"
+}

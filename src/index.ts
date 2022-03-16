@@ -3,4 +3,4 @@ export * from './format';
 export * from './parse';
 export * from './prettyFormat';
 export * from './relativeTime';
-export type { dateFormats, timeFormats } from './constants';
+export { dateFormats, type timeFormats, formatterOptions } from './constants';
