@@ -31,6 +31,6 @@ jobs:
         run: yarn test --coverage
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@f32b3a3741e1053eb607407145bc9619351dc93b # tag=v2.1.0
+        uses: codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378 # tag=v3.1.0
         with:
           file: ./coverage/coverage-final.json
