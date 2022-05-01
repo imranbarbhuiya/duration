@@ -25,7 +25,8 @@
     "lint:fix": "eslint . --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "rollup-type-bundler"
+    "prepublishOnly": "rollup-type-bundler",
+    "typecheck": "tsc -p tsconfig.base.json --noEmit"
   },
   "keywords": [
     "ms",

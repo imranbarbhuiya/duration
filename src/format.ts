@@ -1,4 +1,4 @@
-import { day, hour, minute, month, second, year } from './constants';
+import { Time } from './constants';
 
 const fmt = (
   val: number,
@@ -44,15 +44,17 @@ export const format = (
   if (!ms || typeof ms !== 'number') return;
   const pfx = ms < 0 ? '-' : '';
   const abs = Math.abs(ms);
-  if (abs < second)
+  if (abs < Time.Second)
     return ms + (long ? `${separator}millisecond${ms != 1 ? 's' : ''}` : 'ms');
-  if (abs < minute)
-    return fmt(abs / second, pfx, 'second', long, separator, decimal);
-  if (abs < hour)
-    return fmt(abs / minute, pfx, 'minute', long, separator, decimal);
-  if (abs < day) return fmt(abs / hour, pfx, 'hour', long, separator, decimal);
-  if (abs < month) return fmt(abs / day, pfx, 'day', long, separator, decimal);
-  if (abs < year)
-    return fmt(abs / month, pfx, 'month', long, separator, decimal);
-  return fmt(abs / year, pfx, 'year', long, separator, decimal);
+  if (abs < Time.Minute)
+    return fmt(abs / Time.Second, pfx, 'second', long, separator, decimal);
+  if (abs < Time.Hour)
+    return fmt(abs / Time.Minute, pfx, 'minute', long, separator, decimal);
+  if (abs < Time.Day)
+    return fmt(abs / Time.Hour, pfx, 'hour', long, separator, decimal);
+  if (abs < Time.Month)
+    return fmt(abs / Time.Day, pfx, 'day', long, separator, decimal);
+  if (abs < Time.Year)
+    return fmt(abs / Time.Month, pfx, 'month', long, separator, decimal);
+  return fmt(abs / Time.Year, pfx, 'year', long, separator, decimal);
 };

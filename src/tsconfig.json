@@ -5,6 +5,7 @@
     "outDir": "../dist",
     "composite": true,
     "tsBuildInfoFile": "../dist/.tsbuildinfo",
+    "declaration": true,
     "emitDeclarationOnly": true
   },
   "include": ["."]

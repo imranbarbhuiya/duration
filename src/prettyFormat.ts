@@ -1,13 +1,4 @@
-import {
-  year,
-  month,
-  day,
-  hour,
-  minute,
-  second,
-  timeFormats,
-  type formatterOptions,
-} from './constants';
+import { Time, timeFormats, type formatterOptions } from './constants';
 
 /**
  *
@@ -63,51 +54,51 @@ function getValue(
     case 'year':
     case 'y':
       return {
-        value: abs >= year ? Math.floor(abs / year) : undefined,
-        ms: year,
+        value: abs >= Time.Year ? Math.floor(abs / Time.Year) : undefined,
+        ms: Time.Year,
         unit: 'year',
       };
     case 'month':
     case 'mo':
       return {
-        value: abs >= month ? Math.floor(abs / month) : undefined,
-        ms: month,
+        value: abs >= Time.Month ? Math.floor(abs / Time.Month) : undefined,
+        ms: Time.Month,
         unit: 'month',
       };
     case 'week':
     case 'w':
       return {
-        value: abs >= day * 7 ? Math.floor(abs / day / 7) : undefined,
-        ms: day * 7,
+        value: abs >= Time.Week ? Math.floor(abs / Time.Week) : undefined,
+        ms: Time.Week,
         unit: 'week',
       };
     case 'day':
     case 'd':
       return {
-        value: abs >= day ? Math.floor(abs / day) : undefined,
-        ms: day,
+        value: abs >= Time.Day ? Math.floor(abs / Time.Day) : undefined,
+        ms: Time.Day,
         unit: 'day',
       };
     case 'hour':
     case 'h':
       return {
-        value: abs >= hour ? Math.floor(abs / hour) : undefined,
-        ms: hour,
+        value: abs >= Time.Hour ? Math.floor(abs / Time.Hour) : undefined,
+        ms: Time.Hour,
         unit: 'hour',
       };
     case 'minute':
     case 'min':
     case 'm':
       return {
-        value: abs >= minute ? Math.floor(abs / minute) : undefined,
-        ms: minute,
+        value: abs >= Time.Minute ? Math.floor(abs / Time.Minute) : undefined,
+        ms: Time.Minute,
         unit: 'minute',
       };
     case 'second':
     case 's':
       return {
-        value: abs >= second ? Math.floor(abs / second) : undefined,
-        ms: second,
+        value: abs >= Time.Second ? Math.floor(abs / Time.Second) : undefined,
+        ms: Time.Second,
         unit: 'second',
       };
     case 'millisecond':

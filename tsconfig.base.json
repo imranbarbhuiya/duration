@@ -13,8 +13,6 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "lib": ["es2021"],
-    "declaration": true,
-    "emitDeclarationOnly": true,
     "outDir": "dist"
   },
   "includes": ["src/**/*.ts"]
