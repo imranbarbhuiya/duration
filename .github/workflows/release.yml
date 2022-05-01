@@ -24,6 +24,6 @@ jobs:
         run: yarn --immutable
 
       - name: Publish to npm
-        run: npm publish
+        run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
