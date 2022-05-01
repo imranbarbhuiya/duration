@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@56337c425554a6be30cdef71bf441f15be286854 # tag=v3.1.1
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
+          registry-url: https://registry.yarnpkg.com
           cache: 'yarn'
           cache-dependency-path: yarn.lock
 
