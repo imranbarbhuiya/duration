@@ -1,6 +1,6 @@
 {
   "name": "@imranbarbhuiya/duration",
-  "version": "5.0.4",
+  "version": "5.1.0",
   "description": "A small and fast time utility which makes working with time, duration, date super easy. It contains a number of useful small utility methods to work with time and date.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
