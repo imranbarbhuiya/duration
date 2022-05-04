@@ -31,27 +31,13 @@ yarn add @imranbarbhuiya/duration
 ### esm or Typescript
 
 ```ts
-import {
-  parse,
-  format,
-  prettyFormat,
-  date,
-  relativeTime,
-  Formatter,
-} from '@imranbarbhuiya/duration';
+import { parse, format, prettyFormat, date, relativeTime, Formatter } from '@imranbarbhuiya/duration';
 ```
 
 ### CommonJS
 
 ```js
-const {
-  parse,
-  format,
-  prettyFormat,
-  date,
-  relativeTime,
-  Formatter,
-} = require('@imranbarbhuiya/duration');
+const { parse, format, prettyFormat, date, relativeTime, Formatter } = require('@imranbarbhuiya/duration');
 ```
 
 ### parse
@@ -81,9 +67,9 @@ prettyFormat(60000); //=> 1 minute
 prettyFormat(121000); //=> 2 minutes, 1 second
 prettyFormat(1000 * 60 * 60 * 60 * 24 * 30, { format: 'short' }); //=> 1mo
 prettyFormat(86406010, {
-  format: 'short',
-  patterns: ['hour', 'minute', 'second', 'millisecond'],
-  separator: ' ',
+	format: 'short',
+	patterns: ['hour', 'minute', 'second', 'millisecond'],
+	separator: ' '
 }); //=> 24h 6s 10ms
 ```
 
@@ -93,9 +79,9 @@ Writing these patterns every time is a pain. That's why there is a Formatter cla
 
 ```js
 const formatter = new Formatter({
-  format: 'short',
-  patterns: ['hour', 'minute', 'second', 'millisecond'],
-  separator: ' ',
+	format: 'short',
+	patterns: ['hour', 'minute', 'second', 'millisecond'],
+	separator: ' '
 });
 
 formatter.format(1000 * 60 * 60 * 24 * 30); //=> 720h

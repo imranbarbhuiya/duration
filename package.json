@@ -1,71 +1,72 @@
 {
-  "name": "@imranbarbhuiya/duration",
-  "version": "5.1.2",
-  "description": "A small and fast time utility which makes working with time, duration, date super easy. It contains a number of useful small utility methods to work with time and date.",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "browser": "dist/index.global.js",
-  "unpkg": "dist/index.global.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js",
-    "types": "./dist/index.d.ts"
-  },
-  "sideEffects": false,
-  "license": "MIT",
-  "author": "imranbarbhuiya",
-  "engines": {
-    "node": ">=8"
-  },
-  "scripts": {
-    "docs": "typedoc",
-    "build": "tsup && tsc -b src",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "prepack": "rollup-type-bundler",
-    "typecheck": "tsc -p tsconfig.base.json --noEmit"
-  },
-  "keywords": [
-    "ms",
-    "time",
-    "format",
-    "milliseconds",
-    "convert",
-    "duration"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@favware/rollup-type-bundler": "^1.0.7",
-    "@sapphire/eslint-config": "^4.3.4",
-    "@sapphire/prettier-config": "^1.4.3",
-    "@types/jest": "^27.4.1",
-    "@typescript-eslint/eslint-plugin": "^5.21.0",
-    "@typescript-eslint/parser": "^5.21.0",
-    "eslint": "^8.14.0",
-    "jest": "^27.5.1",
-    "jest-circus": "^27.5.1",
-    "ts-jest": "^27.1.4",
-    "tsup": "^5.12.6",
-    "typedoc": "^0.22.15",
-    "typescript": "^4.6.4"
-  },
-  "files": [
-    "dist",
-    "!dist/*.tsbuildinfo"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/imranbarbhuiya/duration.git"
-  },
-  "bugs": {
-    "url": "https://github.com/imranbarbhuiya/duration/issues"
-  },
-  "homepage": "https://duration.js.org/",
-  "packageManager": "yarn@3.2.0",
-  "prettier": "@sapphire/prettier-config"
+	"name": "@imranbarbhuiya/duration",
+	"version": "5.1.2",
+	"description": "A small and fast time utility which makes working with time, duration, date super easy. It contains a number of useful small utility methods to work with time and date.",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"browser": "dist/index.global.js",
+	"unpkg": "dist/index.global.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js",
+		"types": "./dist/index.d.ts"
+	},
+	"sideEffects": false,
+	"license": "MIT",
+	"author": "imranbarbhuiya",
+	"scripts": {
+		"docs": "typedoc",
+		"build": "tsup && tsc -b src",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier --write '**/*.{ts,mjs,json,md}'",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"prepack": "rollup-type-bundler",
+		"typecheck": "tsc -p tsconfig.base.json --noEmit"
+	},
+	"keywords": [
+		"ms",
+		"time",
+		"format",
+		"milliseconds",
+		"convert",
+		"duration"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@favware/rollup-type-bundler": "^1.0.7",
+		"@sapphire/eslint-config": "^4.3.4",
+		"@sapphire/prettier-config": "^1.4.3",
+		"@types/jest": "^27.4.1",
+		"@typescript-eslint/eslint-plugin": "^5.21.0",
+		"@typescript-eslint/parser": "^5.21.0",
+		"eslint": "^8.14.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"jest": "^28.0.3",
+		"prettier": "^2.6.2",
+		"ts-jest": "^28.0.1",
+		"tsup": "^5.12.6",
+		"typedoc": "^0.22.15",
+		"typescript": "^4.6.4"
+	},
+	"files": [
+		"dist",
+		"!dist/*.tsbuildinfo"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/imranbarbhuiya/duration.git"
+	},
+	"bugs": {
+		"url": "https://github.com/imranbarbhuiya/duration/issues"
+	},
+	"homepage": "https://duration.js.org/",
+	"packageManager": "yarn@3.2.0",
+	"prettier": "@sapphire/prettier-config"
 }
