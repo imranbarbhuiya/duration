@@ -38,12 +38,12 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@favware/rollup-type-bundler": "^1.0.7",
+		"@favware/rollup-type-bundler": "^1.0.8",
 		"@sapphire/eslint-config": "^4.3.7",
 		"@sapphire/prettier-config": "^1.4.3",
-		"@types/jest": "^28.1.2",
-		"@typescript-eslint/eslint-plugin": "^5.28.0",
-		"@typescript-eslint/parser": "^5.28.0",
+		"@types/jest": "^28.1.3",
+		"@typescript-eslint/eslint-plugin": "^5.29.0",
+		"@typescript-eslint/parser": "^5.29.0",
 		"eslint": "^8.18.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-import": "^2.26.0",
@@ -52,7 +52,7 @@
 		"prettier": "^2.7.1",
 		"ts-jest": "^28.0.5",
 		"tsup": "^6.1.2",
-		"typedoc": "^0.22.17",
+		"typedoc": "^0.22.18",
 		"typescript": "^4.7.4"
 	},
 	"files": [
