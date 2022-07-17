@@ -28,7 +28,7 @@ jobs:
         run: yarn --immutable
 
       - name: Run linters
-        uses: wearerequired/lint-action@2fe6593ac19ccad08133cf11685d5051fa94bbba # tag=v2
+        uses: wearerequired/lint-action@51a8a12fed6483c2ae7e97e34e995214d770748f # tag=v2
         with:
           eslint: true
           eslint_extensions: js,ts
