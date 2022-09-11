@@ -111,8 +111,10 @@ function getValue(pattern: typeof timeFormats[number], abs: number): { value: nu
 	}
 }
 
+export type Formats = typeof timeFormats[number];
+
 export class Formatter {
-	public patterns: readonly typeof timeFormats[number][];
+	public patterns: readonly Formats[];
 	public unitFormat: 'long' | 'short';
 	public separator: string;
 	public constructor({ patterns = timeFormats, format = 'long', separator = ', ' }: formatterOptions = {}) {
