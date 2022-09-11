@@ -1,20 +1,10 @@
 {
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"allowJs": true
+		"noEmit": true,
+		"incremental": false,
+		"types": ["vitest/globals"],
+		"lib": ["dom", "esnext"]
 	},
-	"include": [
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.js",
-		"**/*.mjs",
-		"**/*.jsx",
-		"**/*.test.ts",
-		"**/*.test.js",
-		"**/*.test.mjs",
-		"**/*.spec.ts",
-		"**/*.spec.js",
-		"**/*.spec.mjs"
-	],
-	"exclude": []
+	"include": ["src", "tests", "scripts", "vitest.config.ts", "tsup.config.ts", "globalDateTimezone.ts"]
 }

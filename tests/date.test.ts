@@ -1,7 +1,17 @@
 import { date } from '../src/index';
 
 describe('Date', () => {
+	beforeEach(() => {
+		vi.useFakeTimers();
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
+	});
+
 	test('GIVEN date with format THEN return formatted date', () => {
+		const mockedDate = new Date(2000, 1, 1, 13);
+		vi.setSystemTime(mockedDate);
 		expect(date('2022-01-01T00:00:00.000Z', 'yyyy-MMMM-Do')).toBe('2022-January-Saturday');
 		expect(date('2022-01-01T00:00:00.000Z', 'yy-MMMM-Do HH:mm:ss')).toBe('22-January-Saturday 00:00:00');
 		expect(date('2022-01-01T00:00:00.000Z', 'yy-MMM-Do HH:mm:ss')).toBe('22-Jan-Saturday 00:00:00');
