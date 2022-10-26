@@ -1,12 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { parse, format, prettyFormat } from '../src/index';
+import { parse, format, prettyFormat } from '../src/index.js';
 
 describe('Invalid Inputs', () => {
 	test('GIVEN invalid inputs for parse THEN return undefined', () => {
 		// parse
-		expect(parse(NaN)).toBe(undefined);
+		expect(parse(Number.NaN)).toBe(undefined);
 		expect(parse(null)).toBe(undefined);
 		expect(parse(undefined)).toBe(undefined);
 		expect(parse('')).toBe(undefined);
@@ -18,7 +18,7 @@ describe('Invalid Inputs', () => {
 
 	test('GIVEN invalid inputs for format THEN return undefined', () => {
 		// format
-		expect(format(NaN)).toBe(undefined);
+		expect(format(Number.NaN)).toBe(undefined);
 		expect(format(null)).toBe(undefined);
 		expect(format(undefined)).toBe(undefined);
 		expect(format('')).toBe(undefined);
@@ -29,7 +29,7 @@ describe('Invalid Inputs', () => {
 
 	test('GIVEN invalid inputs for prettyFormat THEN return undefined', () => {
 		// prettyFormat
-		expect(prettyFormat(NaN)).toBe(undefined);
+		expect(prettyFormat(Number.NaN)).toBe(undefined);
 		expect(prettyFormat(null)).toBe(undefined);
 		expect(prettyFormat(undefined)).toBe(undefined);
 		expect(prettyFormat('')).toBe(undefined);
@@ -37,7 +37,7 @@ describe('Invalid Inputs', () => {
 		expect(prettyFormat(true)).toBe(undefined);
 		expect(prettyFormat(false)).toBe(undefined);
 		expect(
-			prettyFormat(1000, {
+			prettyFormat(1_000, {
 				patterns: []
 			})
 		).toBe(undefined);

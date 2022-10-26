@@ -1,9 +1,11 @@
-import { Time, timeFormats, type formatterOptions } from './constants';
+/* eslint-disable jsdoc/check-param-names */
+
+import { Time, timeFormats, type formatterOptions } from './constants.js';
 
 /**
  *
- * @param ms the duration in milliseconds
- * @param options other format options
+ * @param ms - the duration in milliseconds
+ * @param options - other format options
  * @returns the duration in human readable form
  */
 export const prettyFormat = (
@@ -16,8 +18,8 @@ export const prettyFormat = (
 	// if (!keepDecimal) ms = Math.floor(Math.abs(ms));
 	let abs = Math.abs(ms);
 
-	const results = patterns.reduce<string[]>((acc, p) => {
-		const result = getValue(p, abs);
+	const results = patterns.reduce<string[]>((acc, pattern) => {
+		const result = getValue(pattern, abs);
 		if (result.value) {
 			acc.push(
 				`${result.value}${
@@ -34,6 +36,7 @@ export const prettyFormat = (
 			);
 			abs -= result.value * result.ms;
 		}
+
 		return acc;
 	}, []);
 
@@ -42,7 +45,7 @@ export const prettyFormat = (
 	return `${sign}${results.join(separator)}`;
 };
 
-function getValue(pattern: typeof timeFormats[number], abs: number): { value: number | undefined; ms: number; unit: string } {
+function getValue(pattern: typeof timeFormats[number], abs: number): { ms: number; unit: string, value: number | undefined; } {
 	switch (pattern) {
 		case 'year':
 		case 'y':
@@ -115,8 +118,11 @@ export type Formats = typeof timeFormats[number];
 
 export class Formatter {
 	public patterns: readonly Formats[];
+
 	public unitFormat: 'long' | 'short';
+
 	public separator: string;
+
 	public constructor({ patterns = timeFormats, format = 'long', separator = ', ' }: formatterOptions = {}) {
 		this.patterns = patterns;
 		this.unitFormat = format;

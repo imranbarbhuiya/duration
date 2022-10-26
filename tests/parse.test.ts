@@ -1,15 +1,15 @@
-import { parse } from '../src/index';
+import { parse } from '../src/index.js';
 
 describe('Parse', () => {
 	test('GIVEN a valid string THEN return ms', () => {
 		expect(parse('1ms')).toBe(1);
-		expect(parse('1s')).toBe(1000);
-		expect(parse('1m')).toBe(60000);
-		expect(parse('1h')).toBe(3600000);
-		expect(parse('1d')).toBe(86400000);
-		expect(parse('1w')).toBe(604800000);
-		expect(parse('1mo')).toBe(2592000000);
-		expect(parse('1y')).toBe(31536000000);
+		expect(parse('1s')).toBe(1_000);
+		expect(parse('1m')).toBe(60_000);
+		expect(parse('1h')).toBe(3_600_000);
+		expect(parse('1d')).toBe(86_400_000);
+		expect(parse('1w')).toBe(604_800_000);
+		expect(parse('1mo')).toBe(2_592_000_000);
+		expect(parse('1y')).toBe(31_536_000_000);
 	});
 
 	test('GIVEN long form or short form THEN return ms', () => {
@@ -24,10 +24,10 @@ describe('Parse', () => {
 
 	test('GIVEN multiple inputs THEN return addition of all the inputs', () => {
 		expect(parse('1ms 1 second 1 minute 1 hour 1 day 1 week 1 month 1 year')).toBe(
-			1 + 1000 + 60000 + 3600000 + 86400000 + 604800000 + 2592000000 + 31536000000
+			1 + 1_000 + 60_000 + 3_600_000 + 86_400_000 + 604_800_000 + 2_592_000_000 + 31_536_000_000
 		);
 		expect(parse('1ms -1 second 1 minute 1 hour 1 day 1 week 1 month 1 year')).toBe(
-			1 - 1000 + 60000 + 3600000 + 86400000 + 604800000 + 2592000000 + 31536000000
+			1 - 1_000 + 60_000 + 3_600_000 + 86_400_000 + 604_800_000 + 2_592_000_000 + 31_536_000_000
 		);
 	});
 });
