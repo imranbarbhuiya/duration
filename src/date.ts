@@ -1,4 +1,4 @@
-import { dateFormateRegex, type dateFormats, months } from './constants';
+import { dateFormateRegex, type dateFormats, months } from './constants.js';
 
 const padLeftZero = (num: number) => {
 	return num.toString().padStart(2, '0');
@@ -7,8 +7,8 @@ const padLeftZero = (num: number) => {
 /**
  * Format a date as a string.
  *
- * @param input the date to format
- * @param format the format to use
+ * @param input - the date to format
+ * @param format - the format to use
  * @returns the formatted date
  */
 export const date = (input: Date | number | string, format = 'yyyy-MM-dd HH:mm:ss', locale = 'en-US'): string => {
@@ -23,16 +23,16 @@ export const date = (input: Date | number | string, format = 'yyyy-MM-dd HH:mm:s
 		weekday: 'long'
 	});
 
-	const formattedText = format.replace(dateFormateRegex, (match) => {
+	return format.replace(dateFormateRegex, (match) => {
 		switch (match as dateFormats) {
 			case 'yyyy':
 				return year.toString();
 			case 'yy':
-				return year.toString().substring(2);
+				return year.toString().slice(2);
 			case 'MMMM':
 				return months[month - 1];
 			case 'MMM':
-				return months[month - 1].substring(0, 3);
+				return months[month - 1].slice(0, 3);
 			case 'MM':
 				return padLeftZero(month);
 			case 'dd':
@@ -50,7 +50,7 @@ export const date = (input: Date | number | string, format = 'yyyy-MM-dd HH:mm:s
 			case 'Do':
 				return `${dayOfWeekStr}`;
 			case 'DDD':
-				return dayOfWeekStr.substring(0, 3);
+				return dayOfWeekStr.slice(0, 3);
 			case 'D':
 				return day.toString();
 			case 'Z':
@@ -60,11 +60,9 @@ export const date = (input: Date | number | string, format = 'yyyy-MM-dd HH:mm:s
 			case 'a':
 				return dateObj.getHours() < 12 ? 'am' : 'pm';
 			case 'X':
-				return (dateObj.getTime() / 1000).toString();
+				return (dateObj.getTime() / 1_000).toString();
 			case 'x':
 				return dateObj.getTime().toString();
 		}
 	});
-
-	return formattedText;
 };
