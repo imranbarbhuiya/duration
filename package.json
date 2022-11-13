@@ -42,7 +42,7 @@
 		"@favware/cliff-jumper": "^1.8.8",
 		"@vitest/coverage-c8": "^0.25.1",
 		"eslint": "^8.27.0",
-		"eslint-config-mahir": "^0.0.14",
+		"eslint-config-mahir": "^0.0.15",
 		"prettier": "^2.7.1",
 		"tsup": "^6.4.0",
 		"typedoc": "^0.23.20",
