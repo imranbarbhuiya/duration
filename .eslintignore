@@ -1,4 +1,4 @@
 .github
 .yarn
 dist
-index.js
+coverage
