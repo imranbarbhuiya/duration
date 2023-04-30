@@ -45,7 +45,7 @@
 		"eslint-config-mahir": "^0.0.25",
 		"prettier": "^2.8.8",
 		"tsup": "^6.7.0",
-		"typedoc": "^0.24.5",
+		"typedoc": "^0.24.6",
 		"typescript": "^5.0.4",
 		"vitest": "^0.30.1"
 	},
