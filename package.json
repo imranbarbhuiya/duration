@@ -39,7 +39,7 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^2.0.0",
+		"@favware/cliff-jumper": "^2.0.1",
 		"@vitest/coverage-c8": "^0.31.1",
 		"eslint": "^8.41.0",
 		"eslint-config-mahir": "^0.0.26",
