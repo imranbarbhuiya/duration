@@ -1,13 +1,8 @@
-![npm](https://img.shields.io/npm/v/@imranbarbhuiya/duration?style=for-the-badge)
-![npm](https://img.shields.io/npm/dw/@imranbarbhuiya/duration?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/imranbarbhuiya/duration?style=for-the-badge)
-![Lint Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Lint/main?label=Lint&logo=eslint&style=for-the-badge)
-![Build Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Build/main?label=Build&style=for-the-badge&logo=TypeScript)
-![Test Status](https://img.shields.io/github/workflow/status/imranbarbhuiya/duration/Test/main?label=Test&style=for-the-badge&logo=Jest)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/imranbarbhuiya/duration?logo=codefactor&style=for-the-badge)
-![Codecov](https://img.shields.io/codecov/c/github/imranbarbhuiya/duration?logo=codecov&style=for-the-badge&token=4EAW3WK5QV)
-
 # Duration
+
+[![npm](https://img.shields.io/npm/dw/@imranbarbhuiya/duration)](https://www.npmjs.com/package/@imranbarbhuiya/duration)
+[![codecov](https://codecov.io/gh/imranbarbhuiya/duration/branch/main/graph/badge.svg)](https://codecov.io/gh/imranbarbhuiya/duration)
+[![npm](https://img.shields.io/npm/v/@imranbarbhuiya/duration?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@imranbarbhuiya/duration)
 
 A small and fast time utility which makes working with time, duration, date super easy. It contains a number of useful small utility methods to work with time and date.
 
