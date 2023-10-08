@@ -41,11 +41,11 @@
 	"devDependencies": {
 		"@favware/cliff-jumper": "^2.2.0",
 		"@vitest/coverage-v8": "^0.34.6",
-		"eslint": "^8.50.0",
+		"eslint": "^8.51.0",
 		"eslint-config-mahir": "^0.0.33",
 		"prettier": "^3.0.3",
 		"tsup": "^7.2.0",
-		"typedoc": "^0.25.1",
+		"typedoc": "^0.25.2",
 		"typescript": "^5.2.2",
 		"vitest": "^0.34.6"
 	},
@@ -62,5 +62,5 @@
 		"url": "https://github.com/imranbarbhuiya/duration/issues"
 	},
 	"homepage": "https://duration.js.org/",
-	"packageManager": "yarn@3.6.3"
+	"packageManager": "yarn@3.6.4"
 }
