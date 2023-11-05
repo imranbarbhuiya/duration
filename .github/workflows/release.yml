@@ -1,31 +1,31 @@
 name: Publish Package to npmjs
 
 on:
-  release:
-    types:
-      - published
+    release:
+        types:
+            - published
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Install node.js v16
-        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
-        with:
-          node-version: 16
-          cache: yarn
-          registry-url: https://registry.yarnpkg.com/
+            - name: Install node.js v20
+              uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
+              with:
+                  node-version: 20
+                  cache: yarn
+                  registry-url: https://registry.yarnpkg.com/
 
-      - name: Install dependencies
-        run: yarn --immutable
+            - name: Install dependencies
+              run: yarn --immutable
 
-      - name: Publish to npm
-        run: |
-          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
-          yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
-          yarn npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: Publish to npm
+              run: |
+                  yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
+                  yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
+                  yarn npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
