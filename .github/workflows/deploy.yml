@@ -1,32 +1,32 @@
 name: Deploy Docs
 
 on:
-  release:
-    types:
-      - published
+    release:
+        types:
+            - published
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Install node.js v16
-        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
-        with:
-          node-version: 16
-          cache: 'yarn'
-          cache-dependency-path: yarn.lock
+            - name: Install node.js v20
+              uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
+              with:
+                  node-version: 20
+                  cache: 'yarn'
+                  cache-dependency-path: yarn.lock
 
-      - name: Install dependencies
-        run: yarn --immutable
+            - name: Install dependencies
+              run: yarn --immutable
 
-      - name: Generate Docs
-        run: yarn docs
+            - name: Generate Docs
+              run: yarn docs
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@a1ea191d508feb8485aceba848389d49f80ca2dc # v4.4.3
-        with:
-          branch: gh-pages
-          folder: docs
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@a1ea191d508feb8485aceba848389d49f80ca2dc # v4.4.3
+              with:
+                  branch: gh-pages
+                  folder: docs
