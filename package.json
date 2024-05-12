@@ -62,5 +62,5 @@
 		"url": "https://github.com/imranbarbhuiya/duration/issues"
 	},
 	"homepage": "https://duration.js.org/",
-	"packageManager": "yarn@4.2.1"
+	"packageManager": "yarn@4.2.2"
 }
