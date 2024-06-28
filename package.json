@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"@favware/cliff-jumper": "^3.0.3",
 		"@vitest/coverage-v8": "^1.6.0",
-		"eslint": "^8.57.0",
+		"eslint": "^9.6.0",
 		"eslint-config-mahir": "^0.0.43",
 		"prettier": "^3.3.2",
 		"tsup": "^8.1.0",
