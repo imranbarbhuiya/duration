@@ -43,10 +43,10 @@
 		"@vitest/coverage-v8": "^2.0.4",
 		"eslint": "^8.57.0",
 		"eslint-config-mahir": "^0.0.43",
-		"prettier": "^3.3.2",
-		"tsup": "^8.1.0",
-		"typedoc": "^0.26.4",
-		"typescript": "^5.5.3",
+		"prettier": "^3.3.3",
+		"tsup": "^8.2.3",
+		"typedoc": "^0.26.5",
+		"typescript": "^5.5.4",
 		"vitest": "^2.0.4"
 	},
 	"files": [
