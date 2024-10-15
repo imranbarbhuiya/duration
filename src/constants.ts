@@ -51,10 +51,29 @@ export const months = [
 ] as const;
 
 export type dateFormats =
-	'A' | 'a' | 'D' | 'DD' | 'dd' | 'DDD' | 'Do' | 'HH' | 'hh' | 'MM' | 'mm' | 'MMM' | 'MMMM' | 'SS' | 'ss' | 'X' | 'x' | 'yy' | 'yyyy' | 'Z';
+	| 'A'
+	| 'a'
+	| 'D'
+	| 'DD'
+	| 'dd'
+	| 'DDD'
+	| 'Do'
+	| 'HH'
+	| 'hh'
+	| 'MM'
+	| 'mm'
+	| 'MMM'
+	| 'MMMM'
+	| 'SS'
+	| 'ss'
+	| 'X'
+	| 'x'
+	| 'yy'
+	| 'yyyy'
+	| 'Z';
 
 export interface formatterOptions {
 	format?: 'long' | 'short';
-	patterns?: readonly typeof timeFormats[number][];
+	patterns?: readonly (typeof timeFormats)[number][];
 	separator?: string;
 }

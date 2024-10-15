@@ -1,8 +1,6 @@
 import { dateFormateRegex, type dateFormats, months } from './constants.js';
 
-const padLeftZero = (num: number) => {
-	return num.toString().padStart(2, '0');
-};
+const padLeftZero = (num: number) => num.toString().padStart(2, '0');
 
 /**
  * Format a date as a string.

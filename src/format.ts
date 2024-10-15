@@ -1,7 +1,7 @@
 import { Time } from './constants.js';
 
 const fmt = (val: number, pfx: string, str: string, long: boolean, separator: string, decimal: number): string => {
-	const base = 10**decimal;
+	const base = 10 ** decimal;
 	const num = Math.round(val * base) / base;
 	return `${pfx}${num}` + (long ? separator + str + (Number.parseFloat(`${num}`) === 1 ? '' : 's') : str === 'month' ? str.slice(0, 2) : str[0]);
 };

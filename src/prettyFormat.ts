@@ -27,11 +27,11 @@ export const prettyFormat = (
 						? result.unit === 'month'
 							? 'mo'
 							: result.unit === 'millisecond'
-							? 'ms'
-							: result.unit[0]
+								? 'ms'
+								: result.unit[0]
 						: result.value === 1
-						? ` ${result.unit}`
-						: ` ${result.unit}s`
+							? ` ${result.unit}`
+							: ` ${result.unit}s`
 				}`
 			);
 			abs -= result.value * result.ms;
@@ -45,7 +45,7 @@ export const prettyFormat = (
 	return `${sign}${results.join(separator)}`;
 };
 
-function getValue(pattern: typeof timeFormats[number], abs: number): { ms: number; unit: string, value: number | undefined; } {
+function getValue(pattern: (typeof timeFormats)[number], abs: number): { ms: number; unit: string; value: number | undefined } {
 	switch (pattern) {
 		case 'year':
 		case 'y':
@@ -114,7 +114,7 @@ function getValue(pattern: typeof timeFormats[number], abs: number): { ms: numbe
 	}
 }
 
-export type Formats = typeof timeFormats[number];
+export type Formats = (typeof timeFormats)[number];
 
 export class Formatter {
 	public patterns: readonly Formats[];
@@ -139,7 +139,7 @@ export class Formatter {
 		return this;
 	}
 
-	public setPatterns(patterns: readonly typeof timeFormats[number][]) {
+	public setPatterns(patterns: readonly (typeof timeFormats)[number][]) {
 		this.patterns = patterns;
 		return this;
 	}
