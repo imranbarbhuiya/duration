@@ -43,9 +43,9 @@
 		"@vitest/coverage-v8": "^3.0.7",
 		"eslint": "^8.57.1",
 		"eslint-config-mahir": "^0.0.46",
-		"prettier": "^3.5.1",
+		"prettier": "^3.5.2",
 		"tsup": "^8.3.6",
-		"typedoc": "^0.27.7",
+		"typedoc": "^0.27.8",
 		"typescript": "^5.7.3",
 		"vitest": "^3.0.7"
 	},
