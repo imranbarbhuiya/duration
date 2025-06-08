@@ -40,14 +40,14 @@
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^6.0.0",
-		"@vitest/coverage-v8": "^3.1.4",
+		"@vitest/coverage-v8": "^3.2.2",
 		"eslint": "^8.57.1",
 		"eslint-config-mahir": "^0.0.46",
 		"prettier": "^3.5.3",
 		"tsup": "^8.5.0",
 		"typedoc": "^0.28.5",
 		"typescript": "^5.8.3",
-		"vitest": "^3.1.4"
+		"vitest": "^3.2.2"
 	},
 	"files": [
 		"dist/**/*.js*",
@@ -62,5 +62,5 @@
 		"url": "https://github.com/imranbarbhuiya/duration/issues"
 	},
 	"homepage": "https://duration.js.org/",
-	"packageManager": "yarn@4.9.1"
+	"packageManager": "yarn@4.9.2"
 }
